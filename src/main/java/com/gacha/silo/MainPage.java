@@ -11,12 +11,65 @@ import java.awt.*;
  * @author micha
  */
 public class MainPage extends javax.swing.JFrame {
-
+    
+    private CardLayout cardLayout = new CardLayout();
+    private JPanel cardPanel;
+    private HomePage homePage;
+    private DaftarItem daftarItem;
+    private DaftarSuratJalan daftarSuratJalan;
+    private BuatSuratJalan buatSuratJalan;
+    private Invoices invoice;
+    
+    public void initObjects()
+    {
+        daftarItem = new DaftarItem();
+        daftarSuratJalan = new DaftarSuratJalan(this);
+        buatSuratJalan = new BuatSuratJalan();
+        homePage = new HomePage();
+        invoice = new Invoices();
+        
+        cardPanel = new JPanel();
+        cardPanel.setLayout(cardLayout);
+        cardPanel.add(homePage, "Empty Panel");
+        cardPanel.add(daftarItem, "Daftar Item");
+        cardPanel.add(daftarSuratJalan, "Daftar Surat Jalan");
+        cardPanel.add(buatSuratJalan, "Buat Surat Jalan");
+        cardPanel.add(invoice, "Invoice");
+        setContentPane(cardPanel);
+    }
+    
+    public void displayMainPage()
+    {
+        cardLayout.show(cardPanel, "Empty Panel");
+    }
+    
+    public void displayItemList()
+    {
+        cardLayout.show(cardPanel, "Daftar Item");
+    }
+    
+    public void displayDeliveryNotes()
+    {
+        cardLayout.show(cardPanel, "Daftar Surat Jalan");
+    }
+    
+    public void displayAddDeliveryNotes()
+    {
+        cardLayout.show(cardPanel, "Buat Surat Jalan");
+    }
+    
+    public void displayInvoice()
+    {
+        cardLayout.show(cardPanel, "Invoice");
+    }
+    
     /**
      * Creates new form MainPage
      */
     public MainPage() {
+        setLayout(new BorderLayout());
         initComponents();
+        initObjects();
     }
 
     /**
@@ -31,9 +84,13 @@ public class MainPage extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu5 = new javax.swing.JMenu();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jSeparator2 = new javax.swing.JPopupMenu.Separator();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jSeparator3 = new javax.swing.JPopupMenu.Separator();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
+        jSeparator4 = new javax.swing.JPopupMenu.Separator();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
@@ -54,6 +111,17 @@ public class MainPage extends javax.swing.JFrame {
 
         jMenu5.setText("File");
 
+        jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuItem6.setText("Home Page");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jMenuItem6);
+        jMenu5.add(jSeparator2);
+
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_I, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItem1.setText("Items");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -61,14 +129,34 @@ public class MainPage extends javax.swing.JFrame {
             }
         });
         jMenu5.add(jMenuItem1);
+        jMenu5.add(jSeparator3);
 
+        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItem2.setText("Delivery Notes");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu5.add(jMenuItem2);
 
+        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.SHIFT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItem3.setText("Create Delivery Notes");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenu5.add(jMenuItem3);
+        jMenu5.add(jSeparator4);
 
+        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItem4.setText("Invoices");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
         jMenu5.add(jMenuItem4);
 
         jMenuBar1.add(jMenu5);
@@ -76,7 +164,13 @@ public class MainPage extends javax.swing.JFrame {
         jMenu6.setText("Edit");
         jMenu6.add(jSeparator1);
 
+        jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_W, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItem5.setText("Quit Application");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         jMenu6.add(jMenuItem5);
 
         jMenuBar1.add(jMenu6);
@@ -99,15 +193,34 @@ public class MainPage extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
-        jPanel1.removeAll();
+        displayItemList();
         
-        JPanel daftarItem = new DaftarItem();
-        
-        jPanel1.add(daftarItem);
-        jPanel1.revalidate();
-        jPanel1.repaint();
-        jPanel1.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        displayDeliveryNotes();
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+        displayAddDeliveryNotes();
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        // TODO add your handling code here:
+        displayMainPage();
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+        displayInvoice();
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -140,6 +253,7 @@ public class MainPage extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MainPage().setVisible(true);
+                new DaftarItem().setVisible(true);
             }
         });
     }
@@ -153,7 +267,11 @@ public class MainPage extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JPopupMenu.Separator jSeparator2;
+    private javax.swing.JPopupMenu.Separator jSeparator3;
+    private javax.swing.JPopupMenu.Separator jSeparator4;
     // End of variables declaration//GEN-END:variables
 }
