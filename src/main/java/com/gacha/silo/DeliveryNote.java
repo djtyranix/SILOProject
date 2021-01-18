@@ -5,7 +5,7 @@
  */
 package com.gacha.silo;
 import java.util.*;
-import java.text.*;
+import java.text.ParseException;
 /**
  *
  * @author micha
@@ -19,16 +19,15 @@ public class DeliveryNote {
     private Date orderDate;
     private Date deliveryDate;
     private String status;
-    private SimpleDateFormat formatter;
     
-    public DeliveryNote(String invoiceNumber, String deliveryNotesNumber, String customerName, String customerEmail, Date orderDate, Date deliveryDate, String status) throws ParseException
+    public DeliveryNote(String invoiceNumber, String deliveryNotesNumber, String customerName, String customerEmail, String orderDate, String deliveryDate) throws ParseException
     {
         setInvoiceNumber(invoiceNumber);
         setDeliveryNotesNumber(deliveryNotesNumber);
         setCustomerName(customerName);
         setCustomerEmail(customerEmail);
         setOrderDate(orderDate);
-        setStatus(status);
+        setStatus("new");
         formatter = new SimpleDateFormat("dd-MMM-yyyy");
     }
     
@@ -54,12 +53,12 @@ public class DeliveryNote {
     
     public String getOrderDate()
     {
-        return formatter.format(this.orderDate);
+        return this.orderDate;
     }
     
     public String getDeliveryDate()
     {
-        return formatter.format(this.deliveryDate);
+        return this.deliveryDate;
     }
     
     public String getStatus()
@@ -87,12 +86,12 @@ public class DeliveryNote {
         this.customerEmail = customerEmail;
     }
     
-    public final void setOrderDate(Date orderDate)
+    public final void setOrderDate(String orderDate)
     {
         this.orderDate = orderDate;
     }
     
-    public final void setDeliveryDate(Date deliveryDate)
+    public final void setDeliveryDate(String deliveryDate)
     {
         this.deliveryDate = deliveryDate;
     }

@@ -28,15 +28,17 @@
                           <Component id="ItemsLabel" min="-2" max="-2" attributes="0"/>
                           <Component id="CustomerNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="InvoiceNumberLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="DeliveryDateLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="DeliveryDateText" max="32767" attributes="0"/>
                           <Component id="InvoiceNumberText" alignment="0" max="32767" attributes="0"/>
                           <Component id="DeliveryNotesNumberText" alignment="0" max="32767" attributes="0"/>
                           <Component id="CustomerNameText" alignment="0" max="32767" attributes="0"/>
                           <Component id="CustomerEmailText" alignment="0" max="32767" attributes="0"/>
                           <Component id="OrderDateText" alignment="0" max="32767" attributes="0"/>
-                          <Component id="ItemsText" alignment="0" min="-2" pref="332" max="-2" attributes="0"/>
+                          <Component id="ItemsText" alignment="0" pref="332" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -74,12 +76,17 @@
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="DeliveryDateLabel" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                  <Component id="DeliveryDateText" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="ItemsLabel" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
                   <Component id="ItemsText" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace pref="17" max="32767" attributes="0"/>
               <Component id="CreateSuratJalanButton" min="-2" pref="42" max="-2" attributes="0"/>
-              <EmptySpace pref="27" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -135,6 +142,13 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CreateSuratJalanButtonActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="DeliveryDateLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Delivery Date"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="DeliveryDateText">
     </Component>
   </SubComponents>
 </Form>

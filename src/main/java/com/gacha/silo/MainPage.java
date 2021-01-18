@@ -73,6 +73,11 @@ public class MainPage extends javax.swing.JFrame {
         return suratJalanBaruCtl.tampilkanConfirmDialog();
     }
     
+    public void newSuratJalan(String[] input)
+    {
+        suratJalanBaruCtl.newSuratJalan(input);
+    }
+    
     /**
      * Creates new form MainPage
      */

@@ -48,6 +48,8 @@ public class BuatSuratJalanForm extends javax.swing.JPanel {
         ItemsText = new javax.swing.JTextField();
         ItemsLabel = new javax.swing.JLabel();
         CreateSuratJalanButton = new javax.swing.JButton();
+        DeliveryDateLabel = new javax.swing.JLabel();
+        DeliveryDateText = new javax.swing.JTextField();
 
         InvoiceNumberLabel.setText("Invoice Number");
 
@@ -69,6 +71,8 @@ public class BuatSuratJalanForm extends javax.swing.JPanel {
             }
         });
 
+        DeliveryDateLabel.setText("Delivery Date");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -84,15 +88,17 @@ public class BuatSuratJalanForm extends javax.swing.JPanel {
                             .addComponent(DeliveryNotesNumberLabel)
                             .addComponent(ItemsLabel)
                             .addComponent(CustomerNameLabel)
-                            .addComponent(InvoiceNumberLabel))
+                            .addComponent(InvoiceNumberLabel)
+                            .addComponent(DeliveryDateLabel))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(DeliveryDateText)
                             .addComponent(InvoiceNumberText)
                             .addComponent(DeliveryNotesNumberText)
                             .addComponent(CustomerNameText)
                             .addComponent(CustomerEmailText)
                             .addComponent(OrderDateText)
-                            .addComponent(ItemsText, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(ItemsText, javax.swing.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE))))
                 .addGap(242, 242, 242))
         );
         layout.setVerticalGroup(
@@ -120,11 +126,15 @@ public class BuatSuratJalanForm extends javax.swing.JPanel {
                     .addComponent(OrderDateText, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(DeliveryDateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DeliveryDateText, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ItemsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ItemsText, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addComponent(CreateSuratJalanButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addGap(26, 26, 26))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -133,7 +143,16 @@ public class BuatSuratJalanForm extends javax.swing.JPanel {
         int dialogResult = mainPage.tampilkanConfirmDialog();
         if(dialogResult != JOptionPane.YES_OPTION) {return;}
         
+        String[] input = {
+            InvoiceNumberText.getText(),
+            DeliveryNotesNumberText.getText(),
+            CustomerNameText.getText(),
+            CustomerEmailText.getText(),
+            OrderDateText.getText(),
+            DeliveryDateText.getText()
+        };
         
+        mainPage.newSuratJalan(input);
     }//GEN-LAST:event_CreateSuratJalanButtonActionPerformed
 
 
@@ -143,6 +162,8 @@ public class BuatSuratJalanForm extends javax.swing.JPanel {
     private javax.swing.JTextField CustomerEmailText;
     private javax.swing.JLabel CustomerNameLabel;
     private javax.swing.JTextField CustomerNameText;
+    private javax.swing.JLabel DeliveryDateLabel;
+    private javax.swing.JTextField DeliveryDateText;
     private javax.swing.JLabel DeliveryNotesNumberLabel;
     private javax.swing.JTextField DeliveryNotesNumberText;
     private javax.swing.JLabel InvoiceNumberLabel;
