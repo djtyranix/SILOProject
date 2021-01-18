@@ -4,18 +4,26 @@
  * and open the template in the editor.
  */
 package com.gacha.silo;
-
+import java.time.LocalDate;
+import javax.swing.*;
+import java.awt.*;
 /**
  *
  * @author micha
  */
 public class BuatSuratJalanForm extends javax.swing.JPanel {
 
+    private MainPage mainPage;
     /**
      * Creates new form BuatSuratJalan
      */
-    public BuatSuratJalanForm() {
+    public BuatSuratJalanForm(MainPage mainPage) {
         initComponents();
+        addMainPage(mainPage);
+    }
+    
+    public void addMainPage(MainPage mainPage) {
+        this.mainPage = mainPage;
     }
 
     /**
@@ -55,6 +63,11 @@ public class BuatSuratJalanForm extends javax.swing.JPanel {
         ItemsLabel.setText("Items");
 
         CreateSuratJalanButton.setText("Create");
+        CreateSuratJalanButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CreateSuratJalanButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -114,6 +127,14 @@ public class BuatSuratJalanForm extends javax.swing.JPanel {
                 .addContainerGap(27, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void CreateSuratJalanButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateSuratJalanButtonActionPerformed
+        // TODO add your handling code here:
+        int dialogResult = mainPage.tampilkanConfirmDialog();
+        if(dialogResult != JOptionPane.YES_OPTION) {return;}
+        
+        
+    }//GEN-LAST:event_CreateSuratJalanButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

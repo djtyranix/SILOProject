@@ -19,14 +19,19 @@ public class MainPage extends javax.swing.JFrame {
     private DaftarSuratJalan daftarSuratJalan;
     private BuatSuratJalanForm buatSuratJalan;
     private Invoices invoice;
+    private DBHandler dbHandler;
+    private SuratJalanBaruCtl suratJalanBaruCtl;
     
     public void initObjects()
     {
         daftarItem = new DaftarItem();
         daftarSuratJalan = new DaftarSuratJalan(this);
-        buatSuratJalan = new BuatSuratJalanForm();
+        buatSuratJalan = new BuatSuratJalanForm(this);
         homePage = new HomePage();
         invoice = new Invoices();
+        dbHandler = new DBHandler();
+        suratJalanBaruCtl = new SuratJalanBaruCtl(this);
+        suratJalanBaruCtl.addDBHandler(dbHandler);
         
         cardPanel = new JPanel();
         cardPanel.setLayout(cardLayout);
@@ -63,6 +68,11 @@ public class MainPage extends javax.swing.JFrame {
         cardLayout.show(cardPanel, "Invoice");
     }
     
+    public int tampilkanConfirmDialog()
+    {
+        return suratJalanBaruCtl.tampilkanConfirmDialog();
+    }
+    
     /**
      * Creates new form MainPage
      */
@@ -87,16 +97,21 @@ public class MainPage extends javax.swing.JFrame {
         HomePageMenu = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
         ItemsMenu = new javax.swing.JMenuItem();
+        CreateItemMenu = new javax.swing.JMenuItem();
         jSeparator3 = new javax.swing.JPopupMenu.Separator();
         DeliveryNotesMenu = new javax.swing.JMenuItem();
         CreateDeliveryNotesMenu = new javax.swing.JMenuItem();
         jSeparator4 = new javax.swing.JPopupMenu.Separator();
         InvoicesMenu = new javax.swing.JMenuItem();
+        CreateInvoiceMenu = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jMenuItem5 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Sistem Informasi Logistik - SILO");
+
+        jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -130,6 +145,15 @@ public class MainPage extends javax.swing.JFrame {
             }
         });
         jMenu5.add(ItemsMenu);
+
+        CreateItemMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_I, java.awt.event.InputEvent.SHIFT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        CreateItemMenu.setText("Create Item");
+        CreateItemMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CreateItemMenuActionPerformed(evt);
+            }
+        });
+        jMenu5.add(CreateItemMenu);
         jMenu5.add(jSeparator3);
 
         DeliveryNotesMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_DOWN_MASK));
@@ -160,6 +184,15 @@ public class MainPage extends javax.swing.JFrame {
         });
         jMenu5.add(InvoicesMenu);
 
+        CreateInvoiceMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.SHIFT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        CreateInvoiceMenu.setText("Create Invoice");
+        CreateInvoiceMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CreateInvoiceMenuActionPerformed(evt);
+            }
+        });
+        jMenu5.add(CreateInvoiceMenu);
+
         jMenuBar1.add(jMenu5);
 
         jMenu6.setText("Edit");
@@ -182,7 +215,7 @@ public class MainPage extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -190,6 +223,7 @@ public class MainPage extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void ItemsMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemsMenuActionPerformed
@@ -222,6 +256,14 @@ public class MainPage extends javax.swing.JFrame {
         // TODO add your handling code here:
         displayInvoice();
     }//GEN-LAST:event_InvoicesMenuActionPerformed
+
+    private void CreateItemMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateItemMenuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CreateItemMenuActionPerformed
+
+    private void CreateInvoiceMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateInvoiceMenuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CreateInvoiceMenuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -261,6 +303,8 @@ public class MainPage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem CreateDeliveryNotesMenu;
+    private javax.swing.JMenuItem CreateInvoiceMenu;
+    private javax.swing.JMenuItem CreateItemMenu;
     private javax.swing.JMenuItem DeliveryNotesMenu;
     private javax.swing.JMenuItem HomePageMenu;
     private javax.swing.JMenuItem InvoicesMenu;
