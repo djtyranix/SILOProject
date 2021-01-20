@@ -4,18 +4,26 @@
  * and open the template in the editor.
  */
 package com.gacha.silo;
-
+import java.time.LocalDate;
+import javax.swing.*;
+import java.awt.*;
 /**
  *
  * @author micha
  */
 public class InvoiceBaru extends javax.swing.JPanel {
 
+    private MainPage mainPage;
     /**
      * Creates new form InvoiceBaru
      */
-    public InvoiceBaru() {
+    public InvoiceBaru(MainPage mainPage) {
         initComponents();
+        addMainPage(mainPage);
+    }
+    
+    public void addMainPage(MainPage mainPage) {
+        this.mainPage = mainPage;
     }
 
     /**
@@ -110,9 +118,7 @@ public class InvoiceBaru extends javax.swing.JPanel {
             PoNumberText.getText(),
             SupplierNameText.getText(),
             OrderDateText.getText(),
-            DeliveryDateText.getText(),
-            UrlText.getText(),
-            NumberOfStocksText.getText()
+            DeliveryDateText.getText()
         };
 
         mainPage.newSuratJalan(input);

@@ -23,7 +23,7 @@ public class MainPage extends javax.swing.JFrame {
     private Invoices invoice;
     private DBHandler dbHandler;
     private SuratJalanBaruCtl suratJalanBaruCtl;
-    private InvoiceBaruCtl invoiceBaruCtl;
+    private InvoicesBaruCtl invoicesBaruCtl;
     private ItemBaruCtl itemBaruCtl;
     
     public void initObjects()
@@ -33,13 +33,13 @@ public class MainPage extends javax.swing.JFrame {
         buatSuratJalan = new BuatSuratJalanForm(this);
         homePage = new HomePage();
         invoice = new Invoices();
-        itemBaru = new ItemBaru();
-        invoiceBaru = new InvoiceBaru();
+        itemBaru = new ItemBaru(this);
+        invoiceBaru = new InvoiceBaru(this);
         dbHandler = new DBHandler();
         suratJalanBaruCtl = new SuratJalanBaruCtl(this);
         suratJalanBaruCtl.addDBHandler(dbHandler);
-        invoiceBaruCtl = new InvoiceBaruCtl(this);
-        invoiceBaruCtl.addDBHandler(dbHandler);
+        invoicesBaruCtl = new InvoicesBaruCtl(this);
+        invoicesBaruCtl.addDBHandler(dbHandler);
         itemBaruCtl = new ItemBaruCtl(this);
         itemBaruCtl.addDBHandler(dbHandler);
         
@@ -86,6 +86,20 @@ public class MainPage extends javax.swing.JFrame {
     public void newSuratJalan(String[] input)
     {
         DeliveryNote currentDeliveryNote = suratJalanBaruCtl.newSuratJalan(input);
+        
+        
+    }
+    
+    public void newItem(String[] input)
+    {
+        Item currentItem = itemBaruCtl.newItem(input);
+        
+        
+    }
+    
+    public void newInvoice(String[] input)
+    {
+        Invoice currentInvoice = invoicesBaruCtl.newInvoices(input);
         
         
     }
