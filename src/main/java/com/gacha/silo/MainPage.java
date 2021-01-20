@@ -18,9 +18,13 @@ public class MainPage extends javax.swing.JFrame {
     private DaftarItem daftarItem;
     private DaftarSuratJalan daftarSuratJalan;
     private BuatSuratJalanForm buatSuratJalan;
+    private ItemBaru itemBaru;
+    private InvoiceBaru invoiceBaru;
     private Invoices invoice;
     private DBHandler dbHandler;
     private SuratJalanBaruCtl suratJalanBaruCtl;
+    private InvoiceBaruCtl invoiceBaruCtl;
+    private ItemBaruCtl itemBaruCtl;
     
     public void initObjects()
     {
@@ -29,9 +33,15 @@ public class MainPage extends javax.swing.JFrame {
         buatSuratJalan = new BuatSuratJalanForm(this);
         homePage = new HomePage();
         invoice = new Invoices();
+        itemBaru = new ItemBaru();
+        invoiceBaru = new InvoiceBaru();
         dbHandler = new DBHandler();
         suratJalanBaruCtl = new SuratJalanBaruCtl(this);
         suratJalanBaruCtl.addDBHandler(dbHandler);
+        invoiceBaruCtl = new InvoiceBaruCtl(this);
+        invoiceBaruCtl.addDBHandler(dbHandler);
+        itemBaruCtl = new ItemBaruCtl(this);
+        itemBaruCtl.addDBHandler(dbHandler);
         
         cardPanel = new JPanel();
         cardPanel.setLayout(cardLayout);
