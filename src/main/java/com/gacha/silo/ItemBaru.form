@@ -16,13 +16,124 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="1000" max="32767" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace pref="282" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="SubmitItemButton" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="ManufacturerLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="DescriptionLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="NumberOfStocksLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="TitleLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="BarcodeLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="UrlLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="UrlText" alignment="0" max="32767" attributes="0"/>
+                          <Component id="BarcodeText" alignment="0" max="32767" attributes="0"/>
+                          <Component id="TitleText" alignment="0" max="32767" attributes="0"/>
+                          <Component id="DescriptionText" alignment="0" max="32767" attributes="0"/>
+                          <Component id="ManufacturerText" alignment="0" max="32767" attributes="0"/>
+                          <Component id="NumberOfStocksText" alignment="0" pref="332" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace min="-2" pref="242" max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="366" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="BarcodeLabel" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                  <Component id="BarcodeText" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="TitleLabel" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                  <Component id="TitleText" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="DescriptionLabel" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                  <Component id="DescriptionText" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="ManufacturerLabel" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                  <Component id="ManufacturerText" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="UrlLabel" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                  <Component id="UrlText" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="NumberOfStocksLabel" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                  <Component id="NumberOfStocksText" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="SubmitItemButton" min="-2" pref="42" max="-2" attributes="0"/>
+              <EmptySpace pref="61" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="NumberOfStocksLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Number Of Stocks"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="ManufacturerLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Manufacturer"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="SubmitItemButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Submit"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SubmitItemButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="NumberOfStocksText">
+    </Component>
+    <Component class="javax.swing.JLabel" name="UrlLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Url"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="UrlText">
+    </Component>
+    <Component class="javax.swing.JTextField" name="BarcodeText">
+    </Component>
+    <Component class="javax.swing.JLabel" name="BarcodeLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Barcode"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="TitleText">
+    </Component>
+    <Component class="javax.swing.JLabel" name="TitleLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Title"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="DescriptionText">
+    </Component>
+    <Component class="javax.swing.JLabel" name="DescriptionLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Description"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="ManufacturerText">
+    </Component>
+  </SubComponents>
 </Form>
