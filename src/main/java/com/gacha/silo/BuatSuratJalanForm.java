@@ -149,7 +149,8 @@ public class BuatSuratJalanForm extends javax.swing.JPanel {
             CustomerNameText.getText(),
             CustomerEmailText.getText(),
             OrderDateText.getText(),
-            DeliveryDateText.getText()
+            DeliveryDateText.getText(),
+            ItemsText.getText()
         };
         
         mainPage.newSuratJalan(input);

@@ -75,7 +75,9 @@ public class MainPage extends javax.swing.JFrame {
     
     public void newSuratJalan(String[] input)
     {
-        suratJalanBaruCtl.newSuratJalan(input);
+        DeliveryNote currentDeliveryNote = suratJalanBaruCtl.newSuratJalan(input);
+        
+        
     }
     
     /**

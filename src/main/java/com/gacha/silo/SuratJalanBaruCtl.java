@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package com.gacha.silo;
-import java.text.ParseException;
 import javax.swing.JOptionPane;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -36,7 +35,7 @@ public class SuratJalanBaruCtl {
         return dialogResult;
     }
     
-    public DeliveryNote newSuratJalan(String[] input) throws ParseException
+    public DeliveryNote newSuratJalan(String[] input)
     {
         DeliveryNote newSuratJalan = new DeliveryNote(
                 input[0],
@@ -47,8 +46,33 @@ public class SuratJalanBaruCtl {
                 input[5]
         );
         
+        String itemStr = input[6];
+        int jumlahItem;
         
-        
-        
+        //Process only if there are items
+        if (itemStr != null)
+        {
+            String[] items = itemStr.split(";");
+            
+            for(String item : items)
+            {
+                //Processing per item
+                String[] temp = item.trim().split(" ", 2);
+                jumlahItem = Integer.parseInt(temp[0].trim());
+                String curItem = temp[1].trim();
+                
+                //Check whether item exists
+                String[] itemDetail = dbHandler.checkItems(curItem);
+                if(itemDetail == null)
+                {
+                    // If item doesn't exist
+                    JOptionPane.showMessageDialog(null, "Item: " + itemStr + " tidak ditemukan!");
+                    return null;
+                }
+                
+                //Item found
+                
+            }
+        }
     }
 }
