@@ -20,9 +20,10 @@ public class Item {
     private String Manufacturer;
     private String URL;
     private String NumberOfStocks;
+    private String AddItem;
 
     public Item(String Id, String Barcode, String Title, String Description, String Manufacturer, String URL,
-            String NumberOfStocks) {
+            String NumberOfStocks, String AddItem) {
         setId(Id);
         setBarcode(Barcode);
         setTitle(Title);
@@ -30,6 +31,8 @@ public class Item {
         setManufacturer(Manufacturer);
         setURL(URL);
         setNumberOfStocks(NumberOfStocks);
+        setAddItem(AddItem);
+        
     }
 
     public String getId() {
@@ -59,6 +62,10 @@ public class Item {
     public String getNumberOfStocks() {
         return this.NumberOfStocks;
     }
+    
+    public String getAddItem() {
+        return this.AddItem;
+    }
 
     public final void setId(String Id) {
         this.Id = Id;
@@ -86,5 +93,9 @@ public class Item {
 
     public final void setNumberOfStocks(String NumberOfStocks) {
         this.NumberOfStocks = NumberOfStocks;
+    }
+        
+    public final void setAddItem(String AddItem) {
+        this.AddItem = AddItem;
     }
 }
