@@ -11,11 +11,50 @@ package com.gacha.silo;
  */
 public class DeliveryNotesDescription extends javax.swing.JPanel {
 
+    private MainPage mainPage;
+    private DeliveryNote deliveryNote;
     /**
      * Creates new form DeliveryNotesDescription
      */
-    public DeliveryNotesDescription() {
+    public DeliveryNotesDescription(MainPage mainPage, DeliveryNote deliveryNote) {
         initComponents();
+        addMainPage(mainPage);
+        addDeliveryNote(deliveryNote);
+        fillFormInput();
+    }
+    
+    public final void addMainPage(MainPage mainPage) {
+        this.mainPage = mainPage;
+    }
+    
+    public final void addDeliveryNote(DeliveryNote deliveryNote)
+    {
+        this.deliveryNote = deliveryNote;
+    }
+    
+    public final void fillFormInput()
+    {
+        this.InvoiceNumberText.setText(deliveryNote.getInvoiceNumber());
+        this.DeliveryNotesNumberText.setText(deliveryNote.getDeliveryNotesNumber());
+        this.CustomerNameText.setText(deliveryNote.getCustomerName());
+        this.OrderDateText.setText(deliveryNote.getOrderDate());
+        this.DeliveryDateText.setText(deliveryNote.getDeliveryDate());
+        
+        switch(deliveryNote.getStatus())
+        {
+            case 1:
+                this.StatusText.setText("New");
+                break;
+            case 2:
+                this.StatusText.setText("Preparing");
+                break;
+            case 3:
+                this.StatusText.setText("Completed");
+                break;
+            case 4:
+                this.StatusText.setText("Pending");
+                break;
+        }
     }
 
     /**

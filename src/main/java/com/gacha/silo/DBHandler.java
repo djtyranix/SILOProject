@@ -66,13 +66,15 @@ public class DBHandler {
     }
     
     //Saving the delivery notes into the database
-    public void simpanSuratJalan(DeliveryNote deliveryNote)
+    public String simpanSuratJalan(DeliveryNote deliveryNote)
     {
+        String insertId = null;
+        
         try
         {
             Connection con = initDB();
             Connection con2 = initDB();
-            PreparedStatement st = con.prepareStatement("INSERT INTO deliverynote(invoice_id, custName, custEmail, orderDate, deliveryDate, items, status) VALUES (?, ?, ?, ?, ?, ?, ?)");
+            PreparedStatement st = con.prepareStatement("INSERT INTO deliverynote(invoice_id, custName, custEmail, orderDate, deliveryDate, items, status) VALUES (?, ?, ?, ?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
             
             st.setString(1, deliveryNote.getInvoiceNumber());
             st.setString(2, deliveryNote.getCustomerName());
@@ -84,6 +86,20 @@ public class DBHandler {
             
             //System.out.print(st);
             st.executeUpdate();
+            
+            try (ResultSet generatedKeys = st.getGeneratedKeys()) {
+                if (generatedKeys.next()) {
+                    insertId = generatedKeys.getString(1);
+                }
+                else {
+                    throw new SQLException("Creating delivery note failed, no ID obtained.");
+                }
+            }
+            catch (SQLException e)
+            {
+                e.printStackTrace();
+            }
+            
             st.close();
             
             String parts[] = deliveryNote.getItemStr().split(",");
@@ -122,5 +138,7 @@ public class DBHandler {
         {
             e.printStackTrace();
         }
+        
+        return insertId;
     }
 }

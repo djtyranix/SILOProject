@@ -18,6 +18,7 @@ public class MainPage extends javax.swing.JFrame {
     private DaftarItem daftarItem;
     private DaftarSuratJalan daftarSuratJalan;
     private BuatSuratJalanForm buatSuratJalan;
+    private DeliveryNotesDescription lastDeliveryNotesDescription;
     private ItemBaru itemBaru;
     private InvoiceBaru invoiceBaru;
     private Invoices invoice;
@@ -91,6 +92,13 @@ public class MainPage extends javax.swing.JFrame {
         {
             return;
         }
+        
+        if (lastDeliveryNotesDescription != null) {
+            cardPanel.remove(lastDeliveryNotesDescription);
+        }
+        lastDeliveryNotesDescription = new DeliveryNotesDescription(this, currentDeliveryNote);
+        cardPanel.add(lastDeliveryNotesDescription, "Detail Surat Jalan");
+        cardLayout.show(cardPanel, "Detail Surat Jalan");
     }
     
     public void newItem(String[] input)

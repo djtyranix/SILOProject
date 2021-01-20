@@ -76,6 +76,11 @@ public class DeliveryNote {
         this.invoiceNumber = invoiceNumber;
     }
     
+    public final void setDeliveryNotesNumber(String deliveryNotesNumber)
+    {
+        this.deliveryNotesNumber = deliveryNotesNumber;
+    }
+    
     public final void setCustomerName(String customerName)
     {
         this.customerName = customerName;

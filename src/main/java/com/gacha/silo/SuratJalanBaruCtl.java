@@ -43,6 +43,7 @@ public class SuratJalanBaruCtl {
         ArrayList<Item> itemList = new ArrayList<Item>();
         ArrayList<Integer> itemCount = new ArrayList<Integer>();
         String finalItemString = "";
+        String currentId;
         
         //Process only if there are items
         if (itemStr != null)
@@ -102,7 +103,9 @@ public class SuratJalanBaruCtl {
 //        System.out.print(" " + newSuratJalan.getItemStr());
 //        System.out.print(" " + newSuratJalan.getStatus());
         
-        dbHandler.simpanSuratJalan(newSuratJalan);
+        String insertId = dbHandler.simpanSuratJalan(newSuratJalan);
+        
+        newSuratJalan.setDeliveryNotesNumber(insertId);
         
         return newSuratJalan;
     }
