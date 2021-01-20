@@ -6,7 +6,6 @@
 package com.gacha.silo;
 
 import java.util.*;
-import java.text.ParseException;
 
 /**
  *
@@ -23,7 +22,7 @@ public class Item {
     private String NumberOfStocks;
 
     public Item(String Id, String Barcode, String Title, String Description, String Manufacturer, String URL,
-            String NumberOfStocks) throws ParseException {
+            String NumberOfStocks) {
         setId(Id);
         setBarcode(Barcode);
         setTitle(Title);

@@ -5,7 +5,6 @@
  */
 package com.gacha.silo;
 import java.util.*;
-import java.text.ParseException;
 /**
  *
  * @author Kevin
@@ -18,7 +17,7 @@ public class Invoice {
     private String deliveryDate;
     private String status;
     
-    public Invoice(String invoiceNumber, String poNumber, String supplierName, String orderDate, String deliveryDate) throws ParseException
+    public Invoice(String invoiceNumber, String poNumber, String supplierName, String orderDate, String deliveryDate)
     {
         setInvoiceNumber(invoiceNumber);
         setPoNumber(poNumber);

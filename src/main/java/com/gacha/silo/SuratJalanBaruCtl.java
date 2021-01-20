@@ -43,10 +43,9 @@ public class SuratJalanBaruCtl {
                 input[2],
                 input[3],
                 input[4],
-                input[5]
         );
         
-        String itemStr = input[6];
+        String itemStr = input[5];
         int jumlahItem;
         
         //Process only if there are items
