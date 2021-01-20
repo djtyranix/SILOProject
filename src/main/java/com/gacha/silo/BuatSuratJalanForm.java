@@ -134,7 +134,6 @@ public class BuatSuratJalanForm extends javax.swing.JPanel {
         
         String[] input = {
             InvoiceNumberText.getText(),
-            DeliveryNotesNumberText.getText(),
             CustomerNameText.getText(),
             CustomerEmailText.getText(),
             OrderDateText.getText(),
