@@ -50,6 +50,8 @@ public class MainPage extends javax.swing.JFrame {
         cardPanel.add(daftarItem, "Daftar Item");
         cardPanel.add(daftarSuratJalan, "Daftar Surat Jalan");
         cardPanel.add(buatSuratJalan, "Buat Surat Jalan");
+        cardPanel.add(itemBaru, "Tambah Item");
+        cardPanel.add(invoiceBaru, "Buat Invoice");
         cardPanel.add(invoice, "Invoice");
         setContentPane(cardPanel);
     }
@@ -72,6 +74,16 @@ public class MainPage extends javax.swing.JFrame {
     public void displayAddDeliveryNotes()
     {
         cardLayout.show(cardPanel, "Buat Surat Jalan");
+    }
+    
+    public void displayAddItems()
+    {
+        cardLayout.show(cardPanel, "Tambah Item");
+    }
+    
+    public void displayAddInvoices()
+    {
+        cardLayout.show(cardPanel, "Buat Invoice");
     }
     
     public void displayInvoice()
@@ -301,10 +313,12 @@ public class MainPage extends javax.swing.JFrame {
 
     private void CreateItemMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateItemMenuActionPerformed
         // TODO add your handling code here:
+        displayAddItems();
     }//GEN-LAST:event_CreateItemMenuActionPerformed
 
     private void CreateInvoiceMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateInvoiceMenuActionPerformed
         // TODO add your handling code here:
+        displayAddInvoices();
     }//GEN-LAST:event_CreateInvoiceMenuActionPerformed
 
     /**
