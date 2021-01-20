@@ -5,26 +5,24 @@
  */
 package com.gacha.silo;
 import java.util.*;
+import java.text.ParseException;
 /**
  *
- * @author micha
+ * @author Kevin
  */
-public class DeliveryNote {
-    
+public class Invoice {
     private String invoiceNumber;
-    private String deliveryNotesNumber;
-    private String customerName;
-    private String customerEmail;
+    private String poNumber;
+    private String supplierName;
     private String orderDate;
     private String deliveryDate;
     private String status;
     
-    public DeliveryNote(String invoiceNumber, String deliveryNotesNumber, String customerName, String customerEmail, String orderDate, String deliveryDate)
+    public Invoice(String invoiceNumber, String poNumber, String supplierName, String orderDate, String deliveryDate) throws ParseException
     {
         setInvoiceNumber(invoiceNumber);
-        setDeliveryNotesNumber(deliveryNotesNumber);
-        setCustomerName(customerName);
-        setCustomerEmail(customerEmail);
+        setPoNumber(poNumber);
+        setSupplierName(supplierName);
         setOrderDate(orderDate);
         setStatus("new");
     }
@@ -34,19 +32,14 @@ public class DeliveryNote {
         return this.invoiceNumber;
     }
     
-    public String getDeliveryNotesNumber()
+    public String getPoNumber()
     {
-        return this.deliveryNotesNumber;
+        return this.poNumber;
     }
     
-    public String getCustomerName()
+    public String getSupplierName()
     {
-        return this.customerName;
-    }
-    
-    public String getCustomerEmail()
-    {
-        return this.customerEmail;
+        return this.supplierName;
     }
     
     public String getOrderDate()
@@ -69,19 +62,14 @@ public class DeliveryNote {
         this.invoiceNumber = invoiceNumber;
     }
     
-    public final void setDeliveryNotesNumber(String deliveryNotesNumber)
+    public final void setPoNumber(String poNumber)
     {
-        this.deliveryNotesNumber = deliveryNotesNumber;
+        this.poNumber = poNumber;
     }
     
-    public final void setCustomerName(String customerName)
+    public final void setSupplierName(String supplierName)
     {
-        this.customerName = customerName;
-    }
-    
-    public final void setCustomerEmail(String customerEmail)
-    {
-        this.customerEmail = customerEmail;
+        this.supplierName = supplierName;
     }
     
     public final void setOrderDate(String orderDate)
