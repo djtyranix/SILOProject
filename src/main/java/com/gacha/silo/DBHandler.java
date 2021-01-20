@@ -40,12 +40,11 @@ public class DBHandler {
             if(rs.next())
             {
                 String id = Integer.toString(rs.getInt("id"));
-                String barcode = Integer.toString(rs.getInt("barcode"));
                 String numberOfStocks = Integer.toString(rs.getInt("numberOfStocks"));
                 
                 res = new String[]{
                     id,
-                    barcode,
+                    rs.getString("barcode"),
                     rs.getString("title"),
                     rs.getString("description"),
                     rs.getString("manufacturer"),
@@ -64,5 +63,64 @@ public class DBHandler {
         }
         
         return res;
+    }
+    
+    //Saving the delivery notes into the database
+    public void simpanSuratJalan(DeliveryNote deliveryNote)
+    {
+        try
+        {
+            Connection con = initDB();
+            Connection con2 = initDB();
+            PreparedStatement st = con.prepareStatement("INSERT INTO deliverynote(invoice_id, custName, custEmail, orderDate, deliveryDate, items, status) VALUES (?, ?, ?, ?, ?, ?, ?)");
+            
+            st.setString(1, deliveryNote.getInvoiceNumber());
+            st.setString(2, deliveryNote.getCustomerName());
+            st.setString(3, deliveryNote.getCustomerEmail());
+            st.setString(4, deliveryNote.getOrderDate());
+            st.setString(5, deliveryNote.getDeliveryDate());
+            st.setString(6, deliveryNote.getItemStr());
+            st.setInt(7, deliveryNote.getStatus());
+            
+            //System.out.print(st);
+            st.executeUpdate();
+            st.close();
+            
+            String parts[] = deliveryNote.getItemStr().split(",");
+            
+            for(String part : parts)
+            {
+                String[] temp = part.trim().split("-", 2);
+                int idItem  = Integer.parseInt(temp[0]);
+                int jmlItem = Integer.parseInt(temp[1]);
+                int finalJumlah = 0;
+                
+                st = con.prepareStatement("SELECT * FROM item WHERE id = ?");
+                
+                st.setInt(1, idItem);
+                ResultSet rs = st.executeQuery();
+                
+                if(rs.next())
+                {
+                    finalJumlah = rs.getInt("numberOfStocks") - jmlItem;
+                    PreparedStatement st2 = con2.prepareStatement("UPDATE item SET numberOfStocks = ? WHERE id = ?");
+                    
+                    st2.setInt(1, finalJumlah);
+                    st2.setInt(2, idItem);
+                    st2.executeUpdate();
+                    st2.close();
+                    con2.close();
+                }
+                
+                rs.close();
+                st.close();
+            }
+            
+            con.close();
+        }
+        catch (SQLException | ClassNotFoundException e)
+        {
+            e.printStackTrace();
+        }
     }
 }

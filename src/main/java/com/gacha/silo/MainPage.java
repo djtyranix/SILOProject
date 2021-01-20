@@ -77,7 +77,10 @@ public class MainPage extends javax.swing.JFrame {
     {
         DeliveryNote currentDeliveryNote = suratJalanBaruCtl.newSuratJalan(input);
         
-        
+        if(currentDeliveryNote == null)
+        {
+            return;
+        }
     }
     
     /**

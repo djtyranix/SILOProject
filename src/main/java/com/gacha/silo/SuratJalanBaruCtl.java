@@ -5,8 +5,7 @@
  */
 package com.gacha.silo;
 import javax.swing.JOptionPane;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+import java.util.*;
 /**
  *
  * @author micha
@@ -37,16 +36,13 @@ public class SuratJalanBaruCtl {
     
     public DeliveryNote newSuratJalan(String[] input)
     {
-        DeliveryNote newSuratJalan = new DeliveryNote(
-                input[0],
-                input[1],
-                input[2],
-                input[3],
-                input[4]
-        );
-        
+                      
+        DeliveryNote newSuratJalan;
         String itemStr = input[5];
         int jumlahItem;
+        ArrayList<Item> itemList = new ArrayList<Item>();
+        ArrayList<Integer> itemCount = new ArrayList<Integer>();
+        String finalItemString = "";
         
         //Process only if there are items
         if (itemStr != null)
@@ -70,9 +66,43 @@ public class SuratJalanBaruCtl {
                 }
                 
                 //Item found
+                Item Item = new Item(itemDetail[0], itemDetail[1], itemDetail[2], itemDetail[3], itemDetail[4], itemDetail[5], itemDetail[6]);
                 
+                itemList.add(Item);
+                itemCount.add(jumlahItem);
+            }
+            
+            for(int i = 0; i < itemList.size(); i++)
+            {
+                if(i == itemList.size() - 1)
+                {
+                    finalItemString = finalItemString + itemList.get(i).getId() + "-" + itemCount.get(i);
+                }
+                else
+                {
+                    finalItemString = finalItemString + itemList.get(i).getId() + "-" + itemCount.get(i) + ",";
+                }
             }
         }
+        
+        newSuratJalan = new DeliveryNote(
+                input[0],
+                input[1],
+                input[2],
+                input[3],
+                input[4],
+                finalItemString
+        );
+        
+//        System.out.print(" " + newSuratJalan.getInvoiceNumber());
+//        System.out.print(" " + newSuratJalan.getCustomerName());
+//        System.out.print(" " + newSuratJalan.getCustomerEmail());
+//        System.out.print(" " + newSuratJalan.getOrderDate());
+//        System.out.print(" " + newSuratJalan.getDeliveryDate());
+//        System.out.print(" " + newSuratJalan.getItemStr());
+//        System.out.print(" " + newSuratJalan.getStatus());
+        
+        dbHandler.simpanSuratJalan(newSuratJalan);
         
         return newSuratJalan;
     }

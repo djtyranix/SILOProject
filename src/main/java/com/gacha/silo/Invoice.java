@@ -15,7 +15,7 @@ public class Invoice {
     private String supplierName;
     private String orderDate;
     private String deliveryDate;
-    private String status;
+    private int status;
     
     public Invoice(String invoiceNumber, String poNumber, String supplierName, String orderDate, String deliveryDate)
     {
@@ -23,7 +23,7 @@ public class Invoice {
         setPoNumber(poNumber);
         setSupplierName(supplierName);
         setOrderDate(orderDate);
-        setStatus("new");
+        setStatus(1);
     }
     
     public String getInvoiceNumber()
@@ -51,7 +51,7 @@ public class Invoice {
         return this.deliveryDate;
     }
     
-    public String getStatus()
+    public int getStatus()
     {
         return this.status;
     }
@@ -81,7 +81,7 @@ public class Invoice {
         this.deliveryDate = deliveryDate;
     }
     
-    public final void setStatus(String status)
+    public final void setStatus(int status)
     {
         this.status = status;
     }

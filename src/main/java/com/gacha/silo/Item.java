@@ -20,7 +20,6 @@ public class Item {
     private String Manufacturer;
     private String URL;
     private String NumberOfStocks;
-    private String AddItem;
 
     public Item(String Id, String Barcode, String Title, String Description, String Manufacturer, String URL,
             String NumberOfStocks) {

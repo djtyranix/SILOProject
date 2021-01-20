@@ -18,13 +18,16 @@ public class DeliveryNote {
     private String orderDate;
     private String deliveryDate;
     private int status;
+    private String itemStr;
     
-    public DeliveryNote(String invoiceNumber, String customerName, String customerEmail, String orderDate, String deliveryDate)
+    public DeliveryNote(String invoiceNumber, String customerName, String customerEmail, String orderDate, String deliveryDate, String itemStr)
     {
         setInvoiceNumber(invoiceNumber);
         setCustomerName(customerName);
         setCustomerEmail(customerEmail);
         setOrderDate(orderDate);
+        setDeliveryDate(deliveryDate);
+        setItemStr(itemStr);
         setStatus(1);
     }
     
@@ -63,6 +66,11 @@ public class DeliveryNote {
         return this.status;
     }
     
+    public String getItemStr()
+    {
+        return this.itemStr;
+    }
+    
     public final void setInvoiceNumber(String invoiceNumber)
     {
         this.invoiceNumber = invoiceNumber;
@@ -91,5 +99,10 @@ public class DeliveryNote {
     public final void setStatus(int status)
     {
         this.status = status;
+    }
+    
+    public final void setItemStr(String itemStr)
+    {
+        this.itemStr = itemStr;
     }
 }
