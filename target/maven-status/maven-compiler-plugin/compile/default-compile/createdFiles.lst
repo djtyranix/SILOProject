@@ -8,6 +8,7 @@ com\gacha\silo\DeliveryNotesDescription$6.class
 com\gacha\silo\ItemCtl.class
 com\gacha\silo\InvoiceDescription$1.class
 com\gacha\silo\DBHandler.class
+com\gacha\silo\DeliveryNotesDescription$9.class
 com\gacha\silo\BuatSuratJalanCtl.class
 com\gacha\silo\LihatDaftarItemCtl.class
 com\gacha\silo\DeliveryNotesDescription$2.class
@@ -18,6 +19,7 @@ com\gacha\silo\DaftarItem$1.class
 com\gacha\silo\DaftarItem.class
 com\gacha\silo\MainPage$5.class
 com\gacha\silo\InvoicesCtl.class
+com\gacha\silo\InvoiceBaru.class
 com\gacha\silo\SuratJalanBaruCtl.class
 com\gacha\silo\Item.class
 com\gacha\silo\DeliveryNotesDescription$5.class
@@ -26,6 +28,7 @@ com\gacha\silo\BuatSuratJalanForm.class
 com\gacha\silo\LihatDaftarSuratJalanCtl.class
 com\gacha\silo\InvoiceDescription.class
 com\gacha\silo\DeliveryNotesDescription$8.class
+com\gacha\silo\ItemBaru.class
 com\gacha\silo\InvoiceDescription$3.class
 com\gacha\silo\InvoiceDescription$6.class
 com\gacha\silo\HomePage.class

@@ -17,7 +17,7 @@ public class DeliveryNote {
     private String customerEmail;
     private String orderDate;
     private String deliveryDate;
-    private String status;
+    private int status;
     
     public DeliveryNote(String invoiceNumber, String customerName, String customerEmail, String orderDate, String deliveryDate)
     {
@@ -25,7 +25,7 @@ public class DeliveryNote {
         setCustomerName(customerName);
         setCustomerEmail(customerEmail);
         setOrderDate(orderDate);
-        setStatus("new");
+        setStatus(1);
     }
     
     public String getInvoiceNumber()
@@ -58,7 +58,7 @@ public class DeliveryNote {
         return this.deliveryDate;
     }
     
-    public String getStatus()
+    public int getStatus()
     {
         return this.status;
     }
@@ -88,7 +88,7 @@ public class DeliveryNote {
         this.deliveryDate = deliveryDate;
     }
     
-    public final void setStatus(String status)
+    public final void setStatus(int status)
     {
         this.status = status;
     }
