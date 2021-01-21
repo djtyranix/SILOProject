@@ -133,6 +133,18 @@ public class MainPage extends javax.swing.JFrame {
         return invoicesBaruCtl.tampilkanConfirmDialog();
     }
     
+    public void onShowDNDescription(DeliveryNote currentDeliveryNote)
+    {
+        ArrayList<Item> itemList = deliveryNotesDescCtl.showCorrespondItems(currentDeliveryNote);
+        
+        if (lastDeliveryNotesDescription != null) {
+            cardPanel.remove(lastDeliveryNotesDescription);
+        }
+        lastDeliveryNotesDescription = new DeliveryNotesDescription(this, currentDeliveryNote, itemList);
+        cardPanel.add(lastDeliveryNotesDescription, "Detail Surat Jalan");
+        cardLayout.show(cardPanel, "Detail Surat Jalan");
+    }
+    
     public void newSuratJalan(String[] input)
     {
         DeliveryNote currentDeliveryNote = suratJalanBaruCtl.newSuratJalan(input);

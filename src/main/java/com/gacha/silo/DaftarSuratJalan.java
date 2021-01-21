@@ -5,9 +5,9 @@
  */
 package com.gacha.silo;
 import javax.swing.*;
-import java.awt.*;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
+import java.awt.event.ActionEvent;
 /**
  *
  * @author micha
@@ -32,6 +32,18 @@ public class DaftarSuratJalan extends javax.swing.JPanel {
     public final void refresh()
     {
         deliveryNotes = mainPage.getDeliveryNote();
+        
+        Action detail = new AbstractAction(){
+            public void actionPerformed(ActionEvent e)
+            {
+                JTable table = (JTable) e.getSource();
+                int modelRow = Integer.valueOf(e.getActionCommand());
+                DeliveryNote curDeliveryNote = deliveryNotes.get(modelRow);
+                mainPage.onShowDNDescription(curDeliveryNote);
+            }
+        };
+        
+        ButtonColumn buttonColumn = new ButtonColumn(DaftarSuratJalanTable, detail, 6);
         
         fillTable(deliveryNotes);
         this.SearchField.setText("");
@@ -64,7 +76,7 @@ public class DaftarSuratJalan extends javax.swing.JPanel {
                     break;
             }
             
-            model.addRow(new Object[]{curItem.getInvoiceNumber(), curItem.getDeliveryNotesNumber(), curItem.getCustomerName(), curItem.getOrderDate(), curItem.getDeliveryDate(), status, "Action"});
+            model.addRow(new Object[]{curItem.getInvoiceNumber(), curItem.getDeliveryNotesNumber(), curItem.getCustomerName(), curItem.getOrderDate(), curItem.getDeliveryDate(), status, "View"});
         }
     }
     
@@ -116,6 +128,7 @@ public class DaftarSuratJalan extends javax.swing.JPanel {
                 "Inv Number", "DN Number", "Cust Name", "Order Date", "Delivery Date", "Status", "Action"
             }
         ));
+        DaftarSuratJalanTable.setRowHeight(35);
         jScrollPane2.setViewportView(DaftarSuratJalanTable);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

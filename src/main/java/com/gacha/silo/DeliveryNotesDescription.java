@@ -112,6 +112,7 @@ public class DeliveryNotesDescription extends javax.swing.JPanel {
                 "ID", "Barcode", "Title", "Description", "Manufacturer", "URL", "Pcs", "Action"
             }
         ));
+        DNDescTable.setRowHeight(35);
         jScrollPane2.setViewportView(DNDescTable);
 
         InvoiceNumberLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N

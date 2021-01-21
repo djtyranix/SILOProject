@@ -6,8 +6,6 @@
 package com.gacha.silo;
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -16,49 +14,16 @@ import javax.swing.table.DefaultTableModel;
 public class DaftarItem extends javax.swing.JPanel {
 
     private MainPage mainPage;
-    private ArrayList<Item> items;
     /**
      * Creates new form DaftarItem
      */
-    public DaftarItem(MainPage mainPage) {
+    public DaftarItem() {
         initComponents();
         addMainPage(mainPage);
-        refresh();
     }
     
      public void addMainPage(MainPage mainPage) {
         this.mainPage = mainPage;
-    }
-     
-      public final void refresh()
-    {
-        items = mainPage.getItem();
-        
-        fillTable(items);
-        this.SearchField.setText("");
-    }
-    
-    public final void fillTable(ArrayList<Item> itemList)
-    {
-        DefaultTableModel model = (DefaultTableModel) this.DaftarItemTable.getModel();
-        model.setRowCount(0);
-        Item curItem;
-        String status = null;
-        
-        for(int i = 0; i < itemList.size(); i++)
-        {
-            curItem = itemList.get(i);
-            
-            model.addRow(new Object[]{curItem.getBarcode(), curItem.getTitle(), curItem.getDescription(), curItem.getManufacturer(), curItem.getURL(), curItem.getNumberOfStocks(), "Action"});
-        }
-    }
-    
-    public void searchItem(String keyword)
-    {
-        items = mainPage.searchItem(keyword);
-        //deliveryNotes = mainPage.getDeliveryNote();
-        
-        fillTable(items);
     }
 
     /**
@@ -73,7 +38,7 @@ public class DaftarItem extends javax.swing.JPanel {
         SearchField = new javax.swing.JTextField();
         SearchButton = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        DaftarItemTable = new javax.swing.JTable();
+        ItemsTable = new javax.swing.JTable();
         AddItemButton = new javax.swing.JButton();
 
         SearchButton.setText("Search");
@@ -83,7 +48,7 @@ public class DaftarItem extends javax.swing.JPanel {
             }
         });
 
-        DaftarItemTable.setModel(new javax.swing.table.DefaultTableModel(
+        ItemsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null},
@@ -94,7 +59,8 @@ public class DaftarItem extends javax.swing.JPanel {
                 "ID", "Barcode", "Title", "Description", "Manufacturer", "URL", "Number of Stocks", "Action"
             }
         ));
-        jScrollPane2.setViewportView(DaftarItemTable);
+        ItemsTable.setRowHeight(35);
+        jScrollPane2.setViewportView(ItemsTable);
 
         AddItemButton.setText("Add");
 
@@ -135,7 +101,7 @@ public class DaftarItem extends javax.swing.JPanel {
     }  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddItemButton;
-    private javax.swing.JTable DaftarItemTable;
+    private javax.swing.JTable ItemsTable;
     private javax.swing.JButton SearchButton;
     private javax.swing.JTextField SearchField;
     private javax.swing.JScrollPane jScrollPane2;
