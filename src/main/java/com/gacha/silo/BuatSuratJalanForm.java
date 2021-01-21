@@ -29,12 +29,7 @@ public class BuatSuratJalanForm extends javax.swing.JPanel {
     
     public final void refresh()
     {
-        this.CustomerEmailText.setText("");
-        this.CustomerNameText.setText("");
-        this.DeliveryDateText.setText("");
-        this.InvoiceNumberText.setText("");
         this.ItemsText.setText("Contoh: 2 Thermogun Device");
-        this.OrderDateText.setText("");
     }
 
     /**

@@ -33,7 +33,6 @@ public class MainPage extends javax.swing.JFrame {
     {
         daftarItem = new DaftarItem();
         daftarSuratJalan = new DaftarSuratJalan(this);
-        buatSuratJalan = new BuatSuratJalanForm(this);
         homePage = new HomePage();
         invoice = new Invoices();
         itemBaru = new ItemBaru(this);
@@ -53,7 +52,6 @@ public class MainPage extends javax.swing.JFrame {
         cardPanel.add(homePage, "Empty Panel");
         cardPanel.add(daftarItem, "Daftar Item");
         cardPanel.add(daftarSuratJalan, "Daftar Surat Jalan");
-        cardPanel.add(buatSuratJalan, "Buat Surat Jalan");
         cardPanel.add(itemBaru, "Tambah Item");
         cardPanel.add(invoiceBaru, "Buat Invoice");
         cardPanel.add(invoice, "Invoice");
@@ -77,6 +75,13 @@ public class MainPage extends javax.swing.JFrame {
     
     public void displayAddDeliveryNotes()
     {
+        if(buatSuratJalan != null)
+        {
+            cardPanel.remove(buatSuratJalan);
+        }
+        
+        buatSuratJalan = new BuatSuratJalanForm(this);
+        cardPanel.add(buatSuratJalan, "Buat Surat Jalan");
         cardLayout.show(cardPanel, "Buat Surat Jalan");
     }
     
