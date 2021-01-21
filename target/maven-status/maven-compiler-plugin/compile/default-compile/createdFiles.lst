@@ -24,6 +24,7 @@ com\gacha\silo\SuratJalanBaruCtl.class
 com\gacha\silo\Item.class
 com\gacha\silo\DeliveryNotesDescription$5.class
 com\gacha\silo\MainPage$2.class
+com\gacha\silo\ButtonColumn.class
 com\gacha\silo\BuatSuratJalanForm.class
 com\gacha\silo\LihatDaftarSuratJalanCtl.class
 com\gacha\silo\InvoiceDescription.class

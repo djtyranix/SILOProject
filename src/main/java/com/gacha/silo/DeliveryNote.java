@@ -31,6 +31,19 @@ public class DeliveryNote {
         setStatus(1);
     }
     
+    //Complete constructor
+    public DeliveryNote(String deliveryNotesNumber, String invoiceNumber, String customerName, String customerEmail, String orderDate, String deliveryDate, String itemStr, int status)
+    {
+        setDeliveryNotesNumber(deliveryNotesNumber);
+        setInvoiceNumber(invoiceNumber);
+        setCustomerName(customerName);
+        setCustomerEmail(customerEmail);
+        setOrderDate(orderDate);
+        setDeliveryDate(deliveryDate);
+        setItemStr(itemStr);
+        setStatus(status);
+    }
+    
     public String getInvoiceNumber()
     {
         return this.invoiceNumber;
