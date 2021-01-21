@@ -131,6 +131,7 @@ public class DBHandler {
                 rs.close();
                 st.close();
             }
+            
             con2.close();
             con.close();
         }
@@ -321,5 +322,29 @@ public class DBHandler {
         }
         
         return deliveryNotes;
+    }
+    
+    public DeliveryNote changeDNStatus(int status, String id, DeliveryNote deliveryNote)
+    {
+        try
+        {
+            Connection con = initDB();
+            PreparedStatement st = con.prepareStatement("UPDATE deliverynote SET status = ? WHERE id = ?");
+            
+            st.setInt(1, status);
+            st.setString(2, id);
+            st.executeUpdate();
+            
+            st.close();
+            con.close();
+        }
+        catch (SQLException | ClassNotFoundException e)
+        {
+            e.printStackTrace();
+        }
+        
+        deliveryNote.setStatus(status);
+        
+        return deliveryNote;
     }
 }

@@ -5,6 +5,7 @@
  */
 package com.gacha.silo;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 /**
  *
@@ -176,6 +177,11 @@ public class DeliveryNotesDescription extends javax.swing.JPanel {
         });
 
         PendingButton.setText("Pending");
+        PendingButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PendingButtonActionPerformed(evt);
+            }
+        });
 
         SignButton.setText("Sign");
         SignButton.addActionListener(new java.awt.event.ActionListener() {
@@ -292,6 +298,11 @@ public class DeliveryNotesDescription extends javax.swing.JPanel {
 
     private void SignButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignButtonActionPerformed
         // TODO add your handling code here:
+        int dialogResult = mainPage.tampilkanConfirmDialogDNSign();
+        if(dialogResult != JOptionPane.YES_OPTION) {return;}
+        
+        deliveryNote = mainPage.changeDNStatus(3, deliveryNote.getDeliveryNotesNumber(), deliveryNote);
+        mainPage.onShowDNDescription(deliveryNote);
     }//GEN-LAST:event_SignButtonActionPerformed
 
     private void InvoiceNumberTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InvoiceNumberTextActionPerformed
@@ -300,7 +311,21 @@ public class DeliveryNotesDescription extends javax.swing.JPanel {
 
     private void PreparingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PreparingButtonActionPerformed
         // TODO add your handling code here:
+        int dialogResult = mainPage.tampilkanConfirmDialogDNStatus();
+        if(dialogResult != JOptionPane.YES_OPTION) {return;}
+        
+        deliveryNote = mainPage.changeDNStatus(2, deliveryNote.getDeliveryNotesNumber(), deliveryNote);
+        mainPage.onShowDNDescription(deliveryNote);
     }//GEN-LAST:event_PreparingButtonActionPerformed
+
+    private void PendingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PendingButtonActionPerformed
+        // TODO add your handling code here:
+        int dialogResult = mainPage.tampilkanConfirmDialogDNStatus();
+        if(dialogResult != JOptionPane.YES_OPTION) {return;}
+        
+        deliveryNote = mainPage.changeDNStatus(4, deliveryNote.getDeliveryNotesNumber(), deliveryNote);
+        mainPage.onShowDNDescription(deliveryNote);
+    }//GEN-LAST:event_PendingButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

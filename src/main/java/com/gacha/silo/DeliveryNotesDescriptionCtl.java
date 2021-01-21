@@ -49,4 +49,9 @@ public class DeliveryNotesDescriptionCtl {
         
         return items;
     }
+    
+    public DeliveryNote changeDNStatus(int status, String id, DeliveryNote deliveryNote)
+    {
+        return dbHandler.changeDNStatus(status, id, deliveryNote);
+    }
 }

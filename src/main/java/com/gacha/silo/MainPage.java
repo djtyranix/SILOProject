@@ -109,6 +109,22 @@ public class MainPage extends javax.swing.JFrame {
         cardLayout.show(cardPanel, "Invoice");
     }
     
+    public int tampilkanConfirmDialogDNStatus()
+    {
+        int dialogResult = JOptionPane.showConfirmDialog(null, "Apakah anda "
+                + "yakin ingin mengubah status?",
+                "Confirmation", JOptionPane.YES_NO_OPTION);
+        return dialogResult;
+    }
+    
+    public int tampilkanConfirmDialogDNSign()
+    {
+        int dialogResult = JOptionPane.showConfirmDialog(null, "Apakah anda "
+                + "yakin pesanan sudah sesuai?",
+                "Confirmation", JOptionPane.YES_NO_OPTION);
+        return dialogResult;
+    }
+    
     public int tampilkanConfirmDialog()
     {
         return suratJalanBaruCtl.tampilkanConfirmDialog();
@@ -188,6 +204,11 @@ public class MainPage extends javax.swing.JFrame {
         ArrayList<DeliveryNote> deliveryNotes = suratJalanCtl.searchDeliveryNote(keyword);
         
         return deliveryNotes;
+    }
+    
+    public DeliveryNote changeDNStatus(int status, String id, DeliveryNote deliveryNote)
+    {
+        return deliveryNotesDescCtl.changeDNStatus(status, id, deliveryNote);
     }
     
     /**

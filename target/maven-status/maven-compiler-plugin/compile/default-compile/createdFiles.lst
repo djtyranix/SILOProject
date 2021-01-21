@@ -10,6 +10,7 @@ com\gacha\silo\ItemDescription.class
 com\gacha\silo\DeliveryNotesDescription$6.class
 com\gacha\silo\ItemCtl.class
 com\gacha\silo\InvoiceDescription$1.class
+com\gacha\silo\DeliveryNotesDescription$10.class
 com\gacha\silo\DBHandler.class
 com\gacha\silo\DeliveryNotesDescription$9.class
 com\gacha\silo\BuatSuratJalanCtl.class
