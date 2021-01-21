@@ -30,13 +30,15 @@ public class MainPage extends javax.swing.JFrame {
     private ItemBaruCtl itemBaruCtl;
     private DeliveryNotesDescriptionCtl deliveryNotesDescCtl;
     private SuratJalanCtl suratJalanCtl;
+    private ItemCtl itemCtl;
     
     public void initObjects()
     {
         dbHandler = new DBHandler();
         suratJalanCtl = new SuratJalanCtl(this);
         suratJalanCtl.addDBHandler(dbHandler);
-        daftarItem = new DaftarItem();
+        itemCtl = new ItemCtl(this);
+        itemCtl.addDBHandler(dbHandler);
         homePage = new HomePage();
         invoice = new Invoices();
         itemBaru = new ItemBaru(this);
@@ -53,7 +55,6 @@ public class MainPage extends javax.swing.JFrame {
         cardPanel = new JPanel();
         cardPanel.setLayout(cardLayout);
         cardPanel.add(homePage, "Empty Panel");
-        cardPanel.add(daftarItem, "Daftar Item");
         cardPanel.add(itemBaru, "Tambah Item");
         cardPanel.add(invoiceBaru, "Buat Invoice");
         cardPanel.add(invoice, "Invoice");
@@ -67,6 +68,14 @@ public class MainPage extends javax.swing.JFrame {
     
     public void displayItemList()
     {
+        if(daftarItem != null)
+        {
+            cardPanel.remove(daftarItem);
+        }
+        
+        daftarItem = new DaftarItem(this);
+        cardPanel.add(daftarItem, "Daftar Item");
+        
         cardLayout.show(cardPanel, "Daftar Item");
     }
     
@@ -171,11 +180,25 @@ public class MainPage extends javax.swing.JFrame {
         return deliveryNotes;
     }
     
+    public ArrayList<Item> getItem()
+    {
+        ArrayList<Item> items = itemCtl.getItem();
+        
+        return items;
+    }
+    
     public ArrayList<DeliveryNote> searchDeliveryNote(String keyword)
     {
         ArrayList<DeliveryNote> deliveryNotes = suratJalanCtl.searchDeliveryNote(keyword);
         
         return deliveryNotes;
+    }
+    
+    public ArrayList<Item> searchItem(String keyword)
+    {
+        ArrayList<Item> items = itemCtl.searchItem(keyword);
+        
+        return items;
     }
     
     /**
@@ -403,7 +426,6 @@ public class MainPage extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MainPage().setVisible(true);
-                new DaftarItem().setVisible(true);
             }
         });
     }
