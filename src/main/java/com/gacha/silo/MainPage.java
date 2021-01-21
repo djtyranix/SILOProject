@@ -20,6 +20,7 @@ public class MainPage extends javax.swing.JFrame {
     private DaftarSuratJalan daftarSuratJalan;
     private BuatSuratJalanForm buatSuratJalan;
     private DeliveryNotesDescription lastDeliveryNotesDescription;
+    private ItemDescription lastItemDescription;
     private InvoiceDescription lastInvoiceDescription;
     private ItemBaru itemBaru;
     private InvoiceBaru invoiceBaru;
@@ -29,6 +30,7 @@ public class MainPage extends javax.swing.JFrame {
     private InvoicesBaruCtl invoicesBaruCtl;
     private ItemBaruCtl itemBaruCtl;
     private DeliveryNotesDescriptionCtl deliveryNotesDescCtl;
+    private ItemDescriptionCtl itemsDescCtl;
     private SuratJalanCtl suratJalanCtl;
     private ItemCtl itemCtl;
     
@@ -75,7 +77,6 @@ public class MainPage extends javax.swing.JFrame {
         
         daftarItem = new DaftarItem(this);
         cardPanel.add(daftarItem, "Daftar Item");
-        
         cardLayout.show(cardPanel, "Daftar Item");
     }
     
@@ -143,6 +144,17 @@ public class MainPage extends javax.swing.JFrame {
         lastDeliveryNotesDescription = new DeliveryNotesDescription(this, currentDeliveryNote, itemList);
         cardPanel.add(lastDeliveryNotesDescription, "Detail Surat Jalan");
         cardLayout.show(cardPanel, "Detail Surat Jalan");
+    }
+    
+    public void onShowItemDescription(Item currentItem)
+    {
+        
+        if (lastItemDescription != null) {
+            cardPanel.remove(lastItemDescription);
+        }
+        lastItemDescription = new ItemDescription(this, currentItem);
+        cardPanel.add(lastItemDescription, "Detail Item");
+        cardLayout.show(cardPanel, "Detail Item");
     }
     
     public void newSuratJalan(String[] input)

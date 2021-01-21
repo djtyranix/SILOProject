@@ -4,18 +4,45 @@
  * and open the template in the editor.
  */
 package com.gacha.silo;
-
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author Kevin
  */
 public class ItemDescription extends javax.swing.JPanel {
 
+    private MainPage mainPage;
+    private Item item;
     /**
      * Creates new form ItemDescription
      */
-    public ItemDescription() {
+    public ItemDescription(MainPage mainPage, Item item) {
         initComponents();
+        addMainPage(mainPage);
+        addItem(item);
+        fillFormInput();
+    }
+    
+    public final void addMainPage(MainPage mainPage) {
+        this.mainPage = mainPage;
+    }
+    
+    public final void addItem(Item item)
+    {
+        this.item = item;
+    }
+    
+    public final void fillFormInput()
+    {
+        this.IdText.setText(item.getId());
+        this.BarcodeText.setText(item.getBarcode());
+        this.TitleText.setText(item.getTitle());
+        this.DescriptionText.setText(item.getDescription());
+        this.ManufacturerText.setText(item.getManufacturer());
+        this.UrlText.setText(item.getURL());
+        this.NumberOfStocksText.setText(item.getNumberOfStocks());
+        
     }
 
     /**
@@ -27,35 +54,35 @@ public class ItemDescription extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        InvoiceNumberLabel = new javax.swing.JLabel();
-        StatusText = new javax.swing.JTextField();
-        InvoiceNumberText = new javax.swing.JTextField();
+        IdLabel = new javax.swing.JLabel();
+        UrlText = new javax.swing.JTextField();
+        IdText = new javax.swing.JTextField();
         PendingButton = new javax.swing.JButton();
-        DeliveryNotesNumberLabel = new javax.swing.JLabel();
-        DeliveryNotesNumberText = new javax.swing.JTextField();
-        CustomerNameLabel = new javax.swing.JLabel();
-        CustomerNameText = new javax.swing.JTextField();
-        OrderDateLabel = new javax.swing.JLabel();
-        OrderDateText = new javax.swing.JTextField();
-        DeliveryDateLabel = new javax.swing.JLabel();
-        DeliveryDateText = new javax.swing.JTextField();
-        StatusLabel = new javax.swing.JLabel();
-        StatusLabel1 = new javax.swing.JLabel();
-        StatusText1 = new javax.swing.JTextField();
+        BarcodeLabel = new javax.swing.JLabel();
+        BarcodeText = new javax.swing.JTextField();
+        TitleLabel = new javax.swing.JLabel();
+        TitleText = new javax.swing.JTextField();
+        DescriptionLabel = new javax.swing.JLabel();
+        DescriptionText = new javax.swing.JTextField();
+        ManufacturerLabel = new javax.swing.JLabel();
+        ManufacturerText = new javax.swing.JTextField();
+        UrlLabel = new javax.swing.JLabel();
+        NumberOfStocksLabel = new javax.swing.JLabel();
+        NumberOfStocksText = new javax.swing.JTextField();
 
-        InvoiceNumberLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        InvoiceNumberLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        InvoiceNumberLabel.setText("ID");
+        IdLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        IdLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        IdLabel.setText("ID");
 
-        StatusText.addActionListener(new java.awt.event.ActionListener() {
+        UrlText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                StatusTextActionPerformed(evt);
+                UrlTextActionPerformed(evt);
             }
         });
 
-        InvoiceNumberText.addActionListener(new java.awt.event.ActionListener() {
+        IdText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                InvoiceNumberTextActionPerformed(evt);
+                IdTextActionPerformed(evt);
             }
         });
 
@@ -66,57 +93,57 @@ public class ItemDescription extends javax.swing.JPanel {
             }
         });
 
-        DeliveryNotesNumberLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        DeliveryNotesNumberLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        DeliveryNotesNumberLabel.setText("Barcode");
+        BarcodeLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        BarcodeLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        BarcodeLabel.setText("Barcode");
 
-        DeliveryNotesNumberText.addActionListener(new java.awt.event.ActionListener() {
+        BarcodeText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DeliveryNotesNumberTextActionPerformed(evt);
+                BarcodeTextActionPerformed(evt);
             }
         });
 
-        CustomerNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        CustomerNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        CustomerNameLabel.setText("Title");
+        TitleLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        TitleLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        TitleLabel.setText("Title");
 
-        CustomerNameText.addActionListener(new java.awt.event.ActionListener() {
+        TitleText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CustomerNameTextActionPerformed(evt);
+                TitleTextActionPerformed(evt);
             }
         });
 
-        OrderDateLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        OrderDateLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        OrderDateLabel.setText("Description");
+        DescriptionLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        DescriptionLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        DescriptionLabel.setText("Description");
 
-        OrderDateText.addActionListener(new java.awt.event.ActionListener() {
+        DescriptionText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                OrderDateTextActionPerformed(evt);
+                DescriptionTextActionPerformed(evt);
             }
         });
 
-        DeliveryDateLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        DeliveryDateLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        DeliveryDateLabel.setText("Manufacturer");
+        ManufacturerLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        ManufacturerLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        ManufacturerLabel.setText("Manufacturer");
 
-        DeliveryDateText.addActionListener(new java.awt.event.ActionListener() {
+        ManufacturerText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DeliveryDateTextActionPerformed(evt);
+                ManufacturerTextActionPerformed(evt);
             }
         });
 
-        StatusLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        StatusLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        StatusLabel.setText("URL");
+        UrlLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        UrlLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        UrlLabel.setText("URL");
 
-        StatusLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        StatusLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        StatusLabel1.setText("Number Of Stocks");
+        NumberOfStocksLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        NumberOfStocksLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        NumberOfStocksLabel.setText("Number Of Stocks");
 
-        StatusText1.addActionListener(new java.awt.event.ActionListener() {
+        NumberOfStocksText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                StatusText1ActionPerformed(evt);
+                NumberOfStocksTextActionPerformed(evt);
             }
         });
 
@@ -127,22 +154,22 @@ public class ItemDescription extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(DeliveryNotesNumberLabel)
-                    .addComponent(CustomerNameLabel)
-                    .addComponent(OrderDateLabel)
-                    .addComponent(DeliveryDateLabel)
-                    .addComponent(StatusLabel)
-                    .addComponent(StatusLabel1)
-                    .addComponent(InvoiceNumberLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BarcodeLabel)
+                    .addComponent(TitleLabel)
+                    .addComponent(DescriptionLabel)
+                    .addComponent(ManufacturerLabel)
+                    .addComponent(UrlLabel)
+                    .addComponent(NumberOfStocksLabel)
+                    .addComponent(IdLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(InvoiceNumberText, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DeliveryNotesNumberText, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(StatusText, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DeliveryDateText, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(OrderDateText, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CustomerNameText, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(StatusText1, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(IdText, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BarcodeText, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(UrlText, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ManufacturerText, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DescriptionText, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TitleText, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(NumberOfStocksText, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(650, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -153,70 +180,70 @@ public class ItemDescription extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 44, Short.MAX_VALUE)
+                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(InvoiceNumberText, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(InvoiceNumberLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(IdLabel)
+                    .addComponent(IdText, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(DeliveryNotesNumberLabel)
-                    .addComponent(DeliveryNotesNumberText, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BarcodeLabel)
+                    .addComponent(BarcodeText, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CustomerNameLabel)
-                    .addComponent(CustomerNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TitleLabel)
+                    .addComponent(TitleText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(OrderDateLabel)
-                    .addComponent(OrderDateText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(DescriptionLabel)
+                    .addComponent(DescriptionText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(DeliveryDateLabel)
-                    .addComponent(DeliveryDateText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ManufacturerLabel)
+                    .addComponent(ManufacturerText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(StatusLabel)
-                    .addComponent(StatusText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(UrlLabel)
+                    .addComponent(UrlText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(StatusText1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(StatusLabel1))
-                .addGap(51, 51, 51))
+                    .addComponent(NumberOfStocksText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(NumberOfStocksLabel))
+                .addContainerGap(70, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(36, 36, 36)
                     .addComponent(PendingButton)
-                    .addContainerGap(293, Short.MAX_VALUE)))
+                    .addContainerGap(295, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void StatusTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StatusTextActionPerformed
+    private void UrlTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UrlTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_StatusTextActionPerformed
+    }//GEN-LAST:event_UrlTextActionPerformed
 
-    private void InvoiceNumberTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InvoiceNumberTextActionPerformed
+    private void IdTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IdTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_InvoiceNumberTextActionPerformed
+    }//GEN-LAST:event_IdTextActionPerformed
 
-    private void DeliveryNotesNumberTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeliveryNotesNumberTextActionPerformed
+    private void BarcodeTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BarcodeTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_DeliveryNotesNumberTextActionPerformed
+    }//GEN-LAST:event_BarcodeTextActionPerformed
 
-    private void CustomerNameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CustomerNameTextActionPerformed
+    private void TitleTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TitleTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_CustomerNameTextActionPerformed
+    }//GEN-LAST:event_TitleTextActionPerformed
 
-    private void OrderDateTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OrderDateTextActionPerformed
+    private void DescriptionTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DescriptionTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_OrderDateTextActionPerformed
+    }//GEN-LAST:event_DescriptionTextActionPerformed
 
-    private void DeliveryDateTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeliveryDateTextActionPerformed
+    private void ManufacturerTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ManufacturerTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_DeliveryDateTextActionPerformed
+    }//GEN-LAST:event_ManufacturerTextActionPerformed
 
-    private void StatusText1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StatusText1ActionPerformed
+    private void NumberOfStocksTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NumberOfStocksTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_StatusText1ActionPerformed
+    }//GEN-LAST:event_NumberOfStocksTextActionPerformed
 
     private void PendingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PendingButtonActionPerformed
         // TODO add your handling code here:
@@ -224,20 +251,20 @@ public class ItemDescription extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel CustomerNameLabel;
-    private javax.swing.JTextField CustomerNameText;
-    private javax.swing.JLabel DeliveryDateLabel;
-    private javax.swing.JTextField DeliveryDateText;
-    private javax.swing.JLabel DeliveryNotesNumberLabel;
-    private javax.swing.JTextField DeliveryNotesNumberText;
-    private javax.swing.JLabel InvoiceNumberLabel;
-    private javax.swing.JTextField InvoiceNumberText;
-    private javax.swing.JLabel OrderDateLabel;
-    private javax.swing.JTextField OrderDateText;
+    private javax.swing.JLabel BarcodeLabel;
+    private javax.swing.JTextField BarcodeText;
+    private javax.swing.JLabel DescriptionLabel;
+    private javax.swing.JTextField DescriptionText;
+    private javax.swing.JLabel IdLabel;
+    private javax.swing.JTextField IdText;
+    private javax.swing.JLabel ManufacturerLabel;
+    private javax.swing.JTextField ManufacturerText;
+    private javax.swing.JLabel NumberOfStocksLabel;
+    private javax.swing.JTextField NumberOfStocksText;
     private javax.swing.JButton PendingButton;
-    private javax.swing.JLabel StatusLabel;
-    private javax.swing.JLabel StatusLabel1;
-    private javax.swing.JTextField StatusText;
-    private javax.swing.JTextField StatusText1;
+    private javax.swing.JLabel TitleLabel;
+    private javax.swing.JTextField TitleText;
+    private javax.swing.JLabel UrlLabel;
+    private javax.swing.JTextField UrlText;
     // End of variables declaration//GEN-END:variables
 }

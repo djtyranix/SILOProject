@@ -5,7 +5,9 @@
  */
 package com.gacha.silo;
 import javax.swing.*;
-import java.awt.*;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import java.awt.event.ActionEvent;
 
 /**
  *
@@ -14,16 +16,61 @@ import java.awt.*;
 public class DaftarItem extends javax.swing.JPanel {
 
     private MainPage mainPage;
+    private ArrayList<Item> items;
     /**
      * Creates new form DaftarItem
      */
-    public DaftarItem() {
+    public DaftarItem(MainPage mainPage) {
         initComponents();
         addMainPage(mainPage);
+        refresh();
     }
     
      public void addMainPage(MainPage mainPage) {
         this.mainPage = mainPage;
+    }
+     
+     public final void refresh()
+    {
+        items = mainPage.getItem();
+        
+        Action detail = new AbstractAction(){
+            public void actionPerformed(ActionEvent e)
+            {
+                JTable table = (JTable) e.getSource();
+                int modelRow = Integer.valueOf(e.getActionCommand());
+                Item curItem = items.get(modelRow);
+                mainPage.onShowItemDescription(curItem);
+            }
+        };
+        
+        ButtonColumn buttonColumn = new ButtonColumn(DaftarItemTable, detail, 7);
+        
+        fillTable(items);
+        this.SearchField.setText("");
+    }
+    
+    public final void fillTable(ArrayList<Item> itemList)
+    {
+        DefaultTableModel model = (DefaultTableModel) this.DaftarItemTable.getModel();
+        model.setRowCount(0);
+        Item curItem;
+        String status = null;
+        
+        for(int i = 0; i < itemList.size(); i++)
+        {
+            curItem = itemList.get(i);
+            
+            model.addRow(new Object[]{curItem.getId(), curItem.getBarcode(), curItem.getTitle(), curItem.getDescription(), curItem.getManufacturer(), curItem.getURL(), curItem.getNumberOfStocks(), "View"});
+        }
+    }
+    
+    public void searchItem(String keyword)
+    {
+        items = mainPage.searchItem(keyword);
+        //items = mainPage.getItem();
+        
+        fillTable(items);
     }
 
     /**
@@ -38,7 +85,7 @@ public class DaftarItem extends javax.swing.JPanel {
         SearchField = new javax.swing.JTextField();
         SearchButton = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        ItemsTable = new javax.swing.JTable();
+        DaftarItemTable = new javax.swing.JTable();
         AddItemButton = new javax.swing.JButton();
 
         SearchButton.setText("Search");
@@ -48,7 +95,7 @@ public class DaftarItem extends javax.swing.JPanel {
             }
         });
 
-        ItemsTable.setModel(new javax.swing.table.DefaultTableModel(
+        DaftarItemTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null},
@@ -59,8 +106,8 @@ public class DaftarItem extends javax.swing.JPanel {
                 "ID", "Barcode", "Title", "Description", "Manufacturer", "URL", "Number of Stocks", "Action"
             }
         ));
-        ItemsTable.setRowHeight(35);
-        jScrollPane2.setViewportView(ItemsTable);
+        DaftarItemTable.setRowHeight(35);
+        jScrollPane2.setViewportView(DaftarItemTable);
 
         AddItemButton.setText("Add");
 
@@ -93,6 +140,8 @@ public class DaftarItem extends javax.swing.JPanel {
 
     private void SearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchButtonActionPerformed
         // TODO add your handling code here:
+        String keyword = SearchField.getText();
+        searchItem(keyword);
     }//GEN-LAST:event_SearchButtonActionPerformed
             
     private void AddItemButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                    
@@ -101,7 +150,7 @@ public class DaftarItem extends javax.swing.JPanel {
     }  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddItemButton;
-    private javax.swing.JTable ItemsTable;
+    private javax.swing.JTable DaftarItemTable;
     private javax.swing.JButton SearchButton;
     private javax.swing.JTextField SearchField;
     private javax.swing.JScrollPane jScrollPane2;
