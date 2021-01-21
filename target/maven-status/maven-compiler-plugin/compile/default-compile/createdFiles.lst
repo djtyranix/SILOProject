@@ -13,6 +13,7 @@ com\gacha\silo\InvoiceDescription$1.class
 com\gacha\silo\DeliveryNotesDescription$10.class
 com\gacha\silo\DBHandler.class
 com\gacha\silo\DeliveryNotesDescription$9.class
+com\gacha\silo\EmailDeliveryNotesForm.class
 com\gacha\silo\BuatSuratJalanCtl.class
 com\gacha\silo\LihatDaftarItemCtl.class
 com\gacha\silo\DaftarSuratJalan$3.class
@@ -66,6 +67,7 @@ com\gacha\silo\Invoice.class
 com\gacha\silo\DaftarItem$2.class
 com\gacha\silo\DeliveryNote.class
 com\gacha\silo\Invoices$1.class
+com\gacha\silo\EmailDeliveryNotesForm$1.class
 com\gacha\silo\ItemBaruCtl.class
 com\gacha\silo\InvoiceDescription$5.class
 com\gacha\silo\Invoices.class

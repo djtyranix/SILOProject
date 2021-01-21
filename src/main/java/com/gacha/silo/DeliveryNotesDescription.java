@@ -99,7 +99,7 @@ public class DeliveryNotesDescription extends javax.swing.JPanel {
         StatusText = new javax.swing.JTextField();
         PendingButton = new javax.swing.JButton();
         SignButton = new javax.swing.JButton();
-        PrintButton = new javax.swing.JButton();
+        EmailButton = new javax.swing.JButton();
         PreparingButton = new javax.swing.JButton();
 
         DNDescTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -190,10 +190,10 @@ public class DeliveryNotesDescription extends javax.swing.JPanel {
             }
         });
 
-        PrintButton.setText("Print");
-        PrintButton.addActionListener(new java.awt.event.ActionListener() {
+        EmailButton.setText("Email");
+        EmailButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PrintButtonActionPerformed(evt);
+                EmailButtonActionPerformed(evt);
             }
         });
 
@@ -229,7 +229,7 @@ public class DeliveryNotesDescription extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(PendingButton, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(PrintButton, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(EmailButton, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(SignButton, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PreparingButton, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23))
@@ -239,26 +239,26 @@ public class DeliveryNotesDescription extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(InvoiceNumberText)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(InvoiceNumberLabel)
-                        .addComponent(PendingButton)))
+                        .addComponent(InvoiceNumberText)
+                        .addComponent(PreparingButton))
+                    .addComponent(InvoiceNumberLabel))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(DeliveryNotesNumberLabel)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(DeliveryNotesNumberText, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(SignButton)))
+                        .addComponent(PendingButton)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CustomerNameLabel)
                     .addComponent(CustomerNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(PrintButton))
+                    .addComponent(SignButton))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(OrderDateLabel)
                     .addComponent(OrderDateText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(PreparingButton))
+                    .addComponent(EmailButton))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(DeliveryDateLabel)
@@ -292,9 +292,10 @@ public class DeliveryNotesDescription extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_CustomerNameTextActionPerformed
 
-    private void PrintButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrintButtonActionPerformed
+    private void EmailButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmailButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_PrintButtonActionPerformed
+        mainPage.displayEmailForm(deliveryNote);
+    }//GEN-LAST:event_EmailButtonActionPerformed
 
     private void SignButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignButtonActionPerformed
         // TODO add your handling code here:
@@ -336,13 +337,13 @@ public class DeliveryNotesDescription extends javax.swing.JPanel {
     private javax.swing.JTextField DeliveryDateText;
     private javax.swing.JLabel DeliveryNotesNumberLabel;
     private javax.swing.JTextField DeliveryNotesNumberText;
+    private javax.swing.JButton EmailButton;
     private javax.swing.JLabel InvoiceNumberLabel;
     private javax.swing.JTextField InvoiceNumberText;
     private javax.swing.JLabel OrderDateLabel;
     private javax.swing.JTextField OrderDateText;
     private javax.swing.JButton PendingButton;
     private javax.swing.JButton PreparingButton;
-    private javax.swing.JButton PrintButton;
     private javax.swing.JButton SignButton;
     private javax.swing.JLabel StatusLabel;
     private javax.swing.JTextField StatusText;

@@ -123,4 +123,17 @@ public class DeliveryNote {
     {
         this.itemStr = itemStr;
     }
+    
+    public String details()
+    {
+        String res = "Nomor Invoice: " + this.invoiceNumber + "\n"
+                + "Nomor DN: " + this.deliveryNotesNumber + "\n"
+                + "Nama Customer: " + this.customerName + "\n"
+                + "Email Customer: " + this.customerEmail + "\n"
+                + "Tanggal Order: " + this.orderDate + "\n"
+                + "Tanggal Delivery: " + this.deliveryDate + "\n"
+                + "Status: " + this.status + "\n"
+                + "Items: " + this.itemStr +"\n";
+        return res;
+    }
 }

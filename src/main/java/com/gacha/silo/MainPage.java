@@ -33,6 +33,7 @@ public class MainPage extends javax.swing.JFrame {
     private ItemDescriptionCtl itemsDescCtl;
     private SuratJalanCtl suratJalanCtl;
     private ItemCtl itemCtl;
+    private EmailDeliveryNotesForm emailForm;
     
     public void initObjects()
     {
@@ -117,6 +118,18 @@ public class MainPage extends javax.swing.JFrame {
     public void displayInvoice()
     {
         cardLayout.show(cardPanel, "Invoice");
+    }
+    
+    public void displayEmailForm(DeliveryNote deliveryNote)
+    {
+        if(emailForm != null)
+        {
+            cardPanel.remove(emailForm);
+        }
+        
+        emailForm = new EmailDeliveryNotesForm(this, deliveryNote);
+        cardPanel.add(emailForm, "Email Form");
+        cardLayout.show(cardPanel, "Email Form");
     }
     
     public int tampilkanConfirmDialogDNStatus()
@@ -244,6 +257,11 @@ public class MainPage extends javax.swing.JFrame {
         ArrayList<Item> items = itemCtl.searchItem(keyword);
         
         return items;
+    }
+    
+    public void emailSend(String emailTo, String subject, String body)
+    {
+        suratJalanCtl.emailSend(emailTo, subject, body);
     }
     
     /**

@@ -5,6 +5,7 @@
  */
 package com.gacha.silo;
 import java.util.*;
+import javax.swing.JOptionPane;
 /**
  *
  * @author micha
@@ -39,5 +40,11 @@ public class SuratJalanCtl {
         ArrayList<DeliveryNote> deliveryNotes = dbHandler.searchDeliveryNote(keyword);
         
         return deliveryNotes;
+    }
+    
+    public void emailSend(String emailTo, String subject, String body)
+    {
+        JOptionPane.showMessageDialog(null, "Email sudah terkirim.");
+        mainPage.displayDeliveryNotes();
     }
 }
