@@ -21,7 +21,9 @@
               <Component id="SearchField" min="-2" pref="219" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="SearchButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="26" pref="666" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="AddItemButton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
           </Group>
           <Component id="jScrollPane2" alignment="0" pref="1000" max="32767" attributes="0"/>
       </Group>
@@ -33,6 +35,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="SearchField" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
                   <Component id="SearchButton" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                  <Component id="AddItemButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="32767" attributes="0"/>
               <Component id="jScrollPane2" min="-2" pref="415" max="-2" attributes="0"/>
@@ -79,5 +82,10 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JButton" name="AddItemButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Add"/>
+      </Properties>
+    </Component>
   </SubComponents>
 </Form>

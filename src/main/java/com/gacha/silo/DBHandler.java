@@ -142,14 +142,22 @@ public class DBHandler {
         return insertId;
     }
     
+<<<<<<< Updated upstream
     //Getting item from id
     public Item getItem(int idItem)
     {
         Item item = null;
+=======
+    //Saving the delivery notes into the database
+    public String simpanItem(Item item)
+    {
+        String insertId = null;
+>>>>>>> Stashed changes
         
         try
         {
             Connection con = initDB();
+<<<<<<< Updated upstream
             PreparedStatement st = con.prepareStatement("SELECT * FROM  item WHERE id = ?");
             
             st.setInt(1, idItem);
@@ -166,6 +174,35 @@ public class DBHandler {
             
             rs.close();
             st.close();
+=======
+            PreparedStatement st = con.prepareStatement("INSERT INTO item(barcode, title, description, manufacturer, url, numberOfStocks) VALUES (?, ?, ?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
+            
+            st.setString(1, item.getBarcode());
+            st.setString(2, item.getTitle());
+            st.setString(3, item.getDescription());
+            st.setString(4, item.getManufacturer());
+            st.setString(5, item.getURL());
+            st.setString(6, item.getNumberOfStocks());
+            
+            //System.out.print(st);
+            st.executeUpdate();
+            
+            try (ResultSet generatedKeys = st.getGeneratedKeys()) {
+                if (generatedKeys.next()) {
+                    insertId = generatedKeys.getString(1);
+                }
+                else {
+                    throw new SQLException("Creating item failed, no ID obtained.");
+                }
+            }
+            catch (SQLException e)
+            {
+                e.printStackTrace();
+            }
+            
+            st.close();  
+             
+            
             con.close();
         }
         catch (SQLException | ClassNotFoundException e)
@@ -173,6 +210,56 @@ public class DBHandler {
             e.printStackTrace();
         }
         
+        return insertId;
+    }
+    
+    //Saving the delivery notes into the database
+    public String simpanInvoice(Invoice invoice)
+    {
+        String insertId = null;
+        
+        try
+        {
+            Connection con = initDB();
+            PreparedStatement st = con.prepareStatement("INSERT INTO invoice(poNumber, supplierName, orderDate, deliveryDate, status) VALUES (?, ?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
+            
+            st.setString(1, invoice.getPoNumber());
+            st.setString(2, invoice.getSupplierName());
+            st.setString(3, invoice.getOrderDate());
+            st.setString(4, invoice.getDeliveryDate());
+            st.setInt(5, invoice.getStatus());
+            
+            //System.out.print(st);
+            st.executeUpdate();
+            
+            try (ResultSet generatedKeys = st.getGeneratedKeys()) {
+                if (generatedKeys.next()) {
+                    insertId = generatedKeys.getString(1);
+                }
+                else {
+                    throw new SQLException("Creating invoice failed, no ID obtained.");
+                }
+            }
+            catch (SQLException e)
+            {
+                e.printStackTrace();
+            }
+            
+            st.close();  
+             
+            
+>>>>>>> Stashed changes
+            con.close();
+        }
+        catch (SQLException | ClassNotFoundException e)
+        {
+            e.printStackTrace();
+        }
+        
+<<<<<<< Updated upstream
         return item;
+=======
+        return insertId;
+>>>>>>> Stashed changes
     }
 }

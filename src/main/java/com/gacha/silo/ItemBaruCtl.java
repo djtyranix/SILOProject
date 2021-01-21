@@ -5,8 +5,7 @@
  */
 package com.gacha.silo;
 import javax.swing.JOptionPane;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+import java.util.*;
 /**
  *
  * @author stugura
@@ -46,7 +45,10 @@ public class ItemBaruCtl {
                 input[5],
                 input[6]
         );
-        
+         String insertId = dbHandler.simpanItem(newItem);
+         
+         newItem.setId(insertId);
+         
         return newItem;
     }
 }

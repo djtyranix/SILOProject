@@ -10,25 +10,25 @@ import java.util.*;
  * @author Kevin
  */
 public class Invoice {
-    private String invoiceNumber;
+    private String id;
     private String poNumber;
     private String supplierName;
     private String orderDate;
     private String deliveryDate;
     private int status;
     
-    public Invoice(String invoiceNumber, String poNumber, String supplierName, String orderDate, String deliveryDate)
+    public Invoice(String id, String poNumber, String supplierName, String orderDate, String deliveryDate)
     {
-        setInvoiceNumber(invoiceNumber);
+        setId(id);
         setPoNumber(poNumber);
         setSupplierName(supplierName);
         setOrderDate(orderDate);
         setStatus(1);
     }
     
-    public String getInvoiceNumber()
+    public String getId()
     {
-        return this.invoiceNumber;
+        return this.id;
     }
     
     public String getPoNumber()
@@ -56,9 +56,9 @@ public class Invoice {
         return this.status;
     }
     
-    public final void setInvoiceNumber(String invoiceNumber)
+    public final void setId(String id)
     {
-        this.invoiceNumber = invoiceNumber;
+        this.id = id;
     }
     
     public final void setPoNumber(String poNumber)

@@ -20,6 +20,7 @@ public class MainPage extends javax.swing.JFrame {
     private DaftarSuratJalan daftarSuratJalan;
     private BuatSuratJalanForm buatSuratJalan;
     private DeliveryNotesDescription lastDeliveryNotesDescription;
+    private InvoiceDescription lastInvoiceDescription;
     private ItemBaru itemBaru;
     private InvoiceBaru invoiceBaru;
     private Invoices invoice;
@@ -127,12 +128,28 @@ public class MainPage extends javax.swing.JFrame {
     {
         Item currentItem = itemBaruCtl.newItem(input);
         
+        if(currentItem == null)
+        {
+            return;
+        }
         
     }
     
     public void newInvoice(String[] input)
     {
         Invoice currentInvoice = invoicesBaruCtl.newInvoices(input);
+        
+        if(currentInvoice == null)
+        {
+            return;
+        }
+        
+        if (lastInvoicesDescription != null) {
+            cardPanel.remove(lastInvoicesDescription);
+        }
+        lastInvoicesDescription = new InvoicesDescription(this, currentInvoice);
+        cardPanel.add(lastInvoicesDescription, "Detail Invoice");
+        cardLayout.show(cardPanel, "Detail Invoice");
         
         
     }
