@@ -144,14 +144,6 @@ public class MainPage extends javax.swing.JFrame {
             return;
         }
         
-        if (lastInvoicesDescription != null) {
-            cardPanel.remove(lastInvoicesDescription);
-        }
-        lastInvoicesDescription = new InvoicesDescription(this, currentInvoice);
-        cardPanel.add(lastInvoicesDescription, "Detail Invoice");
-        cardLayout.show(cardPanel, "Detail Invoice");
-        
-        
     }
     
     /**

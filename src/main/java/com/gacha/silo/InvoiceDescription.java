@@ -18,9 +18,6 @@ public class InvoiceDescription extends javax.swing.JPanel {
      */
     public InvoiceDescription() {
         initComponents();
-        addMainPage(mainPage);
-        addDeliveryNote(deliveryNote);
-        fillFormInput();
     }
 
     /**
