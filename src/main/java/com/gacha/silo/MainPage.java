@@ -29,16 +29,19 @@ public class MainPage extends javax.swing.JFrame {
     private InvoicesBaruCtl invoicesBaruCtl;
     private ItemBaruCtl itemBaruCtl;
     private DeliveryNotesDescriptionCtl deliveryNotesDescCtl;
+    private SuratJalanCtl suratJalanCtl;
     
     public void initObjects()
     {
+        dbHandler = new DBHandler();
+        suratJalanCtl = new SuratJalanCtl(this);
+        suratJalanCtl.addDBHandler(dbHandler);
         daftarItem = new DaftarItem();
         daftarSuratJalan = new DaftarSuratJalan(this);
         homePage = new HomePage();
         invoice = new Invoices();
         itemBaru = new ItemBaru(this);
         invoiceBaru = new InvoiceBaru(this);
-        dbHandler = new DBHandler();
         suratJalanBaruCtl = new SuratJalanBaruCtl(this);
         suratJalanBaruCtl.addDBHandler(dbHandler);
         invoicesBaruCtl = new InvoicesBaruCtl(this);
@@ -46,7 +49,7 @@ public class MainPage extends javax.swing.JFrame {
         itemBaruCtl = new ItemBaruCtl(this);
         itemBaruCtl.addDBHandler(dbHandler);
         deliveryNotesDescCtl = new DeliveryNotesDescriptionCtl(this);
-        deliveryNotesDescCtl.addDBHandler(dbHandler);
+        deliveryNotesDescCtl.addDBHandler(dbHandler);        
         
         cardPanel = new JPanel();
         cardPanel.setLayout(cardLayout);
@@ -154,6 +157,13 @@ public class MainPage extends javax.swing.JFrame {
             return;
         }
         
+    }
+    
+    public ArrayList<DeliveryNote> getDeliveryNote()
+    {
+        ArrayList<DeliveryNote> deliveryNotes = suratJalanCtl.getDeliveryNote();
+        
+        return deliveryNotes;
     }
     
     /**

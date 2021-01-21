@@ -6,6 +6,8 @@
 package com.gacha.silo;
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author micha
@@ -13,16 +15,56 @@ import java.awt.*;
 public class DaftarSuratJalan extends javax.swing.JPanel {
     
     private MainPage mainPage;
+    private ArrayList<DeliveryNote> deliveryNotes;
     /**
      * Creates new form DaftarSuratJalan
      */
     public DaftarSuratJalan(MainPage mainPage) {
         initComponents();
         addMainPage(mainPage);
+        refresh();
     }
     
-    public void addMainPage(MainPage mainPage) {
+    public final void addMainPage(MainPage mainPage) {
         this.mainPage = mainPage;
+    }
+    
+    public final void refresh()
+    {
+        deliveryNotes = mainPage.getDeliveryNote();
+        
+        fillTable(deliveryNotes);
+    }
+    
+    public final void fillTable(ArrayList<DeliveryNote> itemList)
+    {
+        DefaultTableModel model = (DefaultTableModel) this.DaftarSuratJalanTable.getModel();
+        model.setRowCount(0);
+        DeliveryNote curItem;
+        String status = null;
+        
+        for(int i = 0; i < itemList.size(); i++)
+        {
+            curItem = itemList.get(i);
+                    
+            switch(curItem.getStatus())
+            {
+                case 1:
+                    status = "New";
+                    break;
+                case 2:
+                    status = "Preparing";
+                    break;
+                case 3:
+                    status = "Completed";
+                    break;
+                case 4:
+                    status = "Pending";
+                    break;
+            }
+            
+            model.addRow(new Object[]{curItem.getInvoiceNumber(), curItem.getDeliveryNotesNumber(), curItem.getCustomerName(), curItem.getOrderDate(), curItem.getDeliveryDate(), status, "Action"});
+        }
     }
 
     /**
