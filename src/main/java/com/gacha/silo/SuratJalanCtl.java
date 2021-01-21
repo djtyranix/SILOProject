@@ -29,9 +29,14 @@ public class SuratJalanCtl {
     
     public ArrayList<DeliveryNote> getDeliveryNote()
     {
-        ArrayList<DeliveryNote> deliveryNotes = new ArrayList<DeliveryNote>();
+        ArrayList<DeliveryNote> deliveryNotes = dbHandler.getAllDeliveryNotes();
         
-        deliveryNotes = dbHandler.getAllDeliveryNotes();
+        return deliveryNotes;
+    }
+    
+    public ArrayList<DeliveryNote> searchDeliveryNote(String keyword)
+    {
+        ArrayList<DeliveryNote> deliveryNotes = dbHandler.searchDeliveryNote(keyword);
         
         return deliveryNotes;
     }

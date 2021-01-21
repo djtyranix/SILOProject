@@ -37,7 +37,6 @@ public class MainPage extends javax.swing.JFrame {
         suratJalanCtl = new SuratJalanCtl(this);
         suratJalanCtl.addDBHandler(dbHandler);
         daftarItem = new DaftarItem();
-        daftarSuratJalan = new DaftarSuratJalan(this);
         homePage = new HomePage();
         invoice = new Invoices();
         itemBaru = new ItemBaru(this);
@@ -55,7 +54,6 @@ public class MainPage extends javax.swing.JFrame {
         cardPanel.setLayout(cardLayout);
         cardPanel.add(homePage, "Empty Panel");
         cardPanel.add(daftarItem, "Daftar Item");
-        cardPanel.add(daftarSuratJalan, "Daftar Surat Jalan");
         cardPanel.add(itemBaru, "Tambah Item");
         cardPanel.add(invoiceBaru, "Buat Invoice");
         cardPanel.add(invoice, "Invoice");
@@ -74,6 +72,13 @@ public class MainPage extends javax.swing.JFrame {
     
     public void displayDeliveryNotes()
     {
+        if(daftarSuratJalan != null)
+        {
+            cardPanel.remove(daftarSuratJalan);
+        }
+        
+        daftarSuratJalan = new DaftarSuratJalan(this);
+        cardPanel.add(daftarSuratJalan, "Daftar Surat Jalan");
         cardLayout.show(cardPanel, "Daftar Surat Jalan");
     }
     
@@ -162,6 +167,13 @@ public class MainPage extends javax.swing.JFrame {
     public ArrayList<DeliveryNote> getDeliveryNote()
     {
         ArrayList<DeliveryNote> deliveryNotes = suratJalanCtl.getDeliveryNote();
+        
+        return deliveryNotes;
+    }
+    
+    public ArrayList<DeliveryNote> searchDeliveryNote(String keyword)
+    {
+        ArrayList<DeliveryNote> deliveryNotes = suratJalanCtl.searchDeliveryNote(keyword);
         
         return deliveryNotes;
     }

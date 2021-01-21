@@ -34,6 +34,7 @@ public class DaftarSuratJalan extends javax.swing.JPanel {
         deliveryNotes = mainPage.getDeliveryNote();
         
         fillTable(deliveryNotes);
+        this.SearchField.setText("");
     }
     
     public final void fillTable(ArrayList<DeliveryNote> itemList)
@@ -65,6 +66,14 @@ public class DaftarSuratJalan extends javax.swing.JPanel {
             
             model.addRow(new Object[]{curItem.getInvoiceNumber(), curItem.getDeliveryNotesNumber(), curItem.getCustomerName(), curItem.getOrderDate(), curItem.getDeliveryDate(), status, "Action"});
         }
+    }
+    
+    public void searchDeliveryNote(String keyword)
+    {
+        deliveryNotes = mainPage.searchDeliveryNote(keyword);
+        //deliveryNotes = mainPage.getDeliveryNote();
+        
+        fillTable(deliveryNotes);
     }
 
     /**
@@ -138,6 +147,8 @@ public class DaftarSuratJalan extends javax.swing.JPanel {
 
     private void SearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchButtonActionPerformed
         // TODO add your handling code here:
+        String keyword = SearchField.getText();
+        searchDeliveryNote(keyword);
     }//GEN-LAST:event_SearchButtonActionPerformed
 
     private void AddSuratJalanButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddSuratJalanButtonActionPerformed

@@ -2,8 +2,11 @@ com\gacha\silo\DaftarSuratJalan$2.class
 com\gacha\silo\DeliveryNotesDescription$3.class
 com\gacha\silo\InvoiceDescription$8.class
 com\gacha\silo\MainPage$8.class
+com\gacha\silo\ItemDescription$6.class
 com\gacha\silo\MainPage$1.class
 com\gacha\silo\SuratJalanCtl.class
+com\gacha\silo\ItemDescription$3.class
+com\gacha\silo\ItemDescription.class
 com\gacha\silo\DeliveryNotesDescription$6.class
 com\gacha\silo\ItemCtl.class
 com\gacha\silo\InvoiceDescription$1.class
@@ -16,6 +19,7 @@ com\gacha\silo\InvoiceDescription$4.class
 com\gacha\silo\InvoiceDescription$7.class
 com\gacha\silo\MainPage$9.class
 com\gacha\silo\DaftarItem$1.class
+com\gacha\silo\ItemDescription$2.class
 com\gacha\silo\DaftarItem.class
 com\gacha\silo\MainPage$5.class
 com\gacha\silo\InvoicesCtl.class
@@ -23,15 +27,19 @@ com\gacha\silo\InvoiceBaru.class
 com\gacha\silo\SuratJalanBaruCtl.class
 com\gacha\silo\Item.class
 com\gacha\silo\DeliveryNotesDescription$5.class
+com\gacha\silo\ItemDescription$5.class
 com\gacha\silo\MainPage$2.class
+com\gacha\silo\ItemDescription$1.class
 com\gacha\silo\ButtonColumn.class
 com\gacha\silo\BuatSuratJalanForm.class
 com\gacha\silo\LihatDaftarSuratJalanCtl.class
+com\gacha\silo\ItemDescription$8.class
 com\gacha\silo\InvoiceDescription.class
 com\gacha\silo\DeliveryNotesDescription$8.class
 com\gacha\silo\ItemBaru.class
 com\gacha\silo\InvoiceDescription$3.class
 com\gacha\silo\ItemBaru$1.class
+com\gacha\silo\ItemDescription$4.class
 com\gacha\silo\InvoiceDescription$6.class
 com\gacha\silo\HomePage.class
 com\gacha\silo\MainPage$3.class
@@ -40,6 +48,7 @@ com\gacha\silo\DaftarSuratJalan$1.class
 com\gacha\silo\InvoiceBaru$1.class
 com\gacha\silo\DeliveryNotesDescription$1.class
 com\gacha\silo\MainPage.class
+com\gacha\silo\ItemDescription$7.class
 com\gacha\silo\MainPage$7.class
 com\gacha\silo\InvoiceDescription$2.class
 com\gacha\silo\DaftarSuratJalan.class

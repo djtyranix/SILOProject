@@ -289,4 +289,37 @@ public class DBHandler {
         
         return deliveryNotes;
     }
+    
+    public ArrayList<DeliveryNote> searchDeliveryNote(String keyword)
+    {
+        ArrayList<DeliveryNote> deliveryNotes = new ArrayList<DeliveryNote>();
+        DeliveryNote curDeliveryNote;
+        
+        try
+        {
+            Connection con = initDB();
+            PreparedStatement st = con.prepareStatement("SELECT * FROM deliverynote WHERE invoice_id = ? OR id = ?");
+            
+            st.setString(1, keyword);
+            st.setString(2, keyword);
+            
+            //System.out.print(st);
+            
+            ResultSet rs = st.executeQuery();
+
+            while(rs.next())
+            {
+                String id = Integer.toString(rs.getInt("id"));
+                curDeliveryNote = new DeliveryNote(id, rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getInt(8));
+                
+                deliveryNotes.add(curDeliveryNote);
+            }
+        }
+        catch (SQLException | ClassNotFoundException e)
+        {
+            e.printStackTrace();
+        }
+        
+        return deliveryNotes;
+    }
 }
