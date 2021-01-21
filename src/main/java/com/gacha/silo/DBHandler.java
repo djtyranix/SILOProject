@@ -406,4 +406,47 @@ public class DBHandler {
 
         return invoices;
     }
+    
+    public Invoice changeInvoiceStatus(int status, String id, Invoice invoice)
+    {
+        try {
+            Connection con = initDB();
+            PreparedStatement st = con.prepareStatement("UPDATE invoice SET status = ? WHERE id = ?");
+
+            st.setInt(1, status);
+            st.setString(2, id);
+            st.executeUpdate();
+
+            st.close();
+            con.close();
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        invoice.setStatus(status);
+
+        return invoice;
+    }
+    
+    public void updateItem(String[] input)
+    {
+        try
+        {
+            Connection con = initDB();
+            PreparedStatement st = con.prepareStatement("UPDATE item SET title = ?, description = ?, url = ?, numberOfStocks = ? WHERE id = ?");
+            
+            st.setString(1, input[2]);
+            st.setString(2, input[3]);
+            st.setString(3, input[5]);
+            st.setInt(4, Integer.parseInt(input[6]));
+            st.setInt(5, Integer.parseInt(input[0]));
+            
+            st.executeUpdate();
+            st.close();
+            con.close();
+        }
+        catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 }

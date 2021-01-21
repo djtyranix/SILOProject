@@ -28,4 +28,11 @@ public class ItemDescriptionCtl {
         this.mainPage = mainPage;
     }
    
+    public void updateItem(String[] input)
+    {
+        dbHandler.updateItem(input);
+        
+        JOptionPane.showMessageDialog(null, "Barang terbarui.");
+        mainPage.displayItemList();
+    }
 }

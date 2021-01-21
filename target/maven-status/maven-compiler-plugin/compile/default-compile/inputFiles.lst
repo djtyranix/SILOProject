@@ -1,37 +1,5 @@
-<<<<<<< HEAD
-D:\xampp\htdocs\GitHub\SILOProject\src\main\java\com\gacha\silo\ItemBaruCtl.java
-D:\xampp\htdocs\GitHub\SILOProject\src\main\java\com\gacha\silo\BuatSuratJalanCtl.java
-D:\xampp\htdocs\GitHub\SILOProject\src\main\java\com\gacha\silo\BuatSuratJalanForm.java
-D:\xampp\htdocs\GitHub\SILOProject\src\main\java\com\gacha\silo\DeliveryNotesDescriptionCtl.java
-D:\xampp\htdocs\GitHub\SILOProject\src\main\java\com\gacha\silo\SuratJalanCtl.java
-D:\xampp\htdocs\GitHub\SILOProject\src\main\java\com\gacha\silo\InvoiceDescriptionCtl.java
-D:\xampp\htdocs\GitHub\SILOProject\src\main\java\com\gacha\silo\ItemCtl.java
-D:\xampp\htdocs\GitHub\SILOProject\src\main\java\com\gacha\silo\DaftarItem.java
-D:\xampp\htdocs\GitHub\SILOProject\src\main\java\com\gacha\silo\InvoiceCtl.java
-D:\xampp\htdocs\GitHub\SILOProject\src\main\java\com\gacha\silo\ItemDescriptionCtl.java
-D:\xampp\htdocs\GitHub\SILOProject\src\main\java\com\gacha\silo\DBHandler.java
-D:\xampp\htdocs\GitHub\SILOProject\src\main\java\com\gacha\silo\DeliveryNotesDescription.java
-D:\xampp\htdocs\GitHub\SILOProject\src\main\java\com\gacha\silo\InvoicesCtl.java
-D:\xampp\htdocs\GitHub\SILOProject\src\main\java\com\gacha\silo\Item.java
-D:\xampp\htdocs\GitHub\SILOProject\src\main\java\com\gacha\silo\SuratJalanBaruCtl.java
-D:\xampp\htdocs\GitHub\SILOProject\src\main\java\com\gacha\silo\ItemDescription.java
-D:\xampp\htdocs\GitHub\SILOProject\src\main\java\com\gacha\silo\DeliveryNote.java
-D:\xampp\htdocs\GitHub\SILOProject\src\main\java\com\gacha\silo\LihatDaftarSPCtl.java
-D:\xampp\htdocs\GitHub\SILOProject\src\main\java\com\gacha\silo\InvoiceDescription.java
-D:\xampp\htdocs\GitHub\SILOProject\src\main\java\com\gacha\silo\Invoices.java
-D:\xampp\htdocs\GitHub\SILOProject\src\main\java\com\gacha\silo\InvoiceBaru.java
-D:\xampp\htdocs\GitHub\SILOProject\src\main\java\com\gacha\silo\LihatDaftarItemCtl.java
-D:\xampp\htdocs\GitHub\SILOProject\src\main\java\com\gacha\silo\ButtonColumn.java
-D:\xampp\htdocs\GitHub\SILOProject\src\main\java\com\gacha\silo\EmailDeliveryNotesForm.java
-D:\xampp\htdocs\GitHub\SILOProject\src\main\java\com\gacha\silo\InvoicesBaruCtl.java
-D:\xampp\htdocs\GitHub\SILOProject\src\main\java\com\gacha\silo\MainPage.java
-D:\xampp\htdocs\GitHub\SILOProject\src\main\java\com\gacha\silo\DaftarSuratJalan.java
-D:\xampp\htdocs\GitHub\SILOProject\src\main\java\com\gacha\silo\ItemBaru.java
-D:\xampp\htdocs\GitHub\SILOProject\src\main\java\com\gacha\silo\HomePage.java
-D:\xampp\htdocs\GitHub\SILOProject\src\main\java\com\gacha\silo\Invoice.java
-D:\xampp\htdocs\GitHub\SILOProject\src\main\java\com\gacha\silo\LihatDaftarSuratJalanCtl.java
-=======
 C:\Users\micha\OneDrive\Documents\NetBeansProjects\SILO\src\main\java\com\gacha\silo\DaftarItem.java
+C:\Users\micha\OneDrive\Documents\NetBeansProjects\SILO\src\main\java\com\gacha\silo\InvoiceCtl.java
 C:\Users\micha\OneDrive\Documents\NetBeansProjects\SILO\src\main\java\com\gacha\silo\ItemDescriptionCtl.java
 C:\Users\micha\OneDrive\Documents\NetBeansProjects\SILO\src\main\java\com\gacha\silo\TextPrinter.java
 C:\Users\micha\OneDrive\Documents\NetBeansProjects\SILO\src\main\java\com\gacha\silo\Invoices.java
@@ -47,6 +15,7 @@ C:\Users\micha\OneDrive\Documents\NetBeansProjects\SILO\src\main\java\com\gacha\
 C:\Users\micha\OneDrive\Documents\NetBeansProjects\SILO\src\main\java\com\gacha\silo\InvoicesCtl.java
 C:\Users\micha\OneDrive\Documents\NetBeansProjects\SILO\src\main\java\com\gacha\silo\ItemDescription.java
 C:\Users\micha\OneDrive\Documents\NetBeansProjects\SILO\src\main\java\com\gacha\silo\BuatSuratJalanCtl.java
+C:\Users\micha\OneDrive\Documents\NetBeansProjects\SILO\src\main\java\com\gacha\silo\InvoiceDescriptionCtl.java
 C:\Users\micha\OneDrive\Documents\NetBeansProjects\SILO\src\main\java\com\gacha\silo\Invoice.java
 C:\Users\micha\OneDrive\Documents\NetBeansProjects\SILO\src\main\java\com\gacha\silo\LihatDaftarItemCtl.java
 C:\Users\micha\OneDrive\Documents\NetBeansProjects\SILO\src\main\java\com\gacha\silo\ItemBaruCtl.java
@@ -61,4 +30,3 @@ C:\Users\micha\OneDrive\Documents\NetBeansProjects\SILO\src\main\java\com\gacha\
 C:\Users\micha\OneDrive\Documents\NetBeansProjects\SILO\src\main\java\com\gacha\silo\Item.java
 C:\Users\micha\OneDrive\Documents\NetBeansProjects\SILO\src\main\java\com\gacha\silo\BuatSuratJalanForm.java
 C:\Users\micha\OneDrive\Documents\NetBeansProjects\SILO\src\main\java\com\gacha\silo\EmailDeliveryNotesForm.java
->>>>>>> main

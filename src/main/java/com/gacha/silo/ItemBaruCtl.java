@@ -34,6 +34,13 @@ public class ItemBaruCtl {
         return dialogResult;
     }
     
+    public int tampilkanConfirmDialogEdit() {
+        int dialogResult = JOptionPane.showConfirmDialog(null, "Apakah anda "
+                + "yakin ingin merubah item?",
+                "Confirmation", JOptionPane.YES_NO_OPTION);
+        return dialogResult;
+    }
+    
     public Item newItem(String[] input)
     {
         Item newItem = new Item(

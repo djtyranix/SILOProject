@@ -37,17 +37,22 @@ public class MainPage extends javax.swing.JFrame {
     private ItemCtl itemCtl;
     private InvoiceCtl invoiceCtl;
     private EmailDeliveryNotesForm emailForm;
+    private InvoiceDescriptionCtl invoiceDescCtl;
+    private ItemDescriptionCtl itemDescCtl;
 
     public void initObjects() {
         dbHandler = new DBHandler();
         suratJalanCtl = new SuratJalanCtl(this);
         suratJalanCtl.addDBHandler(dbHandler);
+        invoiceDescCtl = new InvoiceDescriptionCtl(this);
+        invoiceDescCtl.addDBHandler(dbHandler);
+        itemDescCtl = new ItemDescriptionCtl(this);
+        itemDescCtl.addDBHandler(dbHandler);
         itemCtl = new ItemCtl(this);
         itemCtl.addDBHandler(dbHandler);
         invoiceCtl = new InvoiceCtl(this);
         invoiceCtl.addDBHandler(dbHandler);
         homePage = new HomePage();
-        invoice = new Invoices(this);
         itemBaru = new ItemBaru(this);
         invoiceBaru = new InvoiceBaru(this);
         suratJalanBaruCtl = new SuratJalanBaruCtl(this);
@@ -64,7 +69,6 @@ public class MainPage extends javax.swing.JFrame {
         cardPanel.add(homePage, "Empty Panel");
         cardPanel.add(itemBaru, "Tambah Item");
         cardPanel.add(invoiceBaru, "Buat Invoice");
-        cardPanel.add(invoice, "Invoice");
         setContentPane(cardPanel);
     }
 
@@ -111,6 +115,12 @@ public class MainPage extends javax.swing.JFrame {
     }
 
     public void displayInvoice() {
+        if (invoice != null) {
+            cardPanel.remove(invoice);
+        }
+
+        invoice = new Invoices(this);
+        cardPanel.add(invoice, "Invoice");
         cardLayout.show(cardPanel, "Invoice");
     }
 
@@ -142,6 +152,10 @@ public class MainPage extends javax.swing.JFrame {
 
     public int tampilkanConfirmDialogItem() {
         return itemBaruCtl.tampilkanConfirmDialog();
+    }
+    
+    public int tampilkanConfirmDialogItemEdit() {
+        return itemBaruCtl.tampilkanConfirmDialogEdit();
     }
 
     public int tampilkanConfirmDialogInvoice() {
@@ -201,6 +215,8 @@ public class MainPage extends javax.swing.JFrame {
         if (currentItem == null) {
             return;
         }
+        
+        displayItemList();
 
     }
 
@@ -210,6 +226,8 @@ public class MainPage extends javax.swing.JFrame {
         if (currentInvoice == null) {
             return;
         }
+        
+        displayInvoice();
 
     }
 
@@ -240,6 +258,11 @@ public class MainPage extends javax.swing.JFrame {
     public DeliveryNote changeDNStatus(int status, String id, DeliveryNote deliveryNote) {
         return deliveryNotesDescCtl.changeDNStatus(status, id, deliveryNote);
     }
+    
+    public Invoice changeInvoiceStatus(int status, String id, Invoice invoice)
+    {
+        return invoiceDescCtl.changeInvoiceStatus(status, id, invoice);
+    }
 
     public ArrayList<Item> searchItem(String keyword) {
         ArrayList<Item> items = itemCtl.searchItem(keyword);
@@ -261,6 +284,12 @@ public class MainPage extends javax.swing.JFrame {
     {
         suratJalanCtl.printDeliveryNote(deliveryNote);
     }
+    
+    public void updateItem(String[] input)
+    {
+        itemDescCtl.updateItem(input);
+    }
+    
     
     /**
      * Creates new form MainPage

@@ -5,6 +5,7 @@
  */
 package com.gacha.silo;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 /**
  *
@@ -57,7 +58,7 @@ public class ItemDescription extends javax.swing.JPanel {
         IdLabel = new javax.swing.JLabel();
         UrlText = new javax.swing.JTextField();
         IdText = new javax.swing.JTextField();
-        PendingButton = new javax.swing.JButton();
+        UpdateButton = new javax.swing.JButton();
         BarcodeLabel = new javax.swing.JLabel();
         BarcodeText = new javax.swing.JTextField();
         TitleLabel = new javax.swing.JLabel();
@@ -86,10 +87,10 @@ public class ItemDescription extends javax.swing.JPanel {
             }
         });
 
-        PendingButton.setText("Update");
-        PendingButton.addActionListener(new java.awt.event.ActionListener() {
+        UpdateButton.setText("Update");
+        UpdateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PendingButtonActionPerformed(evt);
+                UpdateButtonActionPerformed(evt);
             }
         });
 
@@ -174,7 +175,7 @@ public class ItemDescription extends javax.swing.JPanel {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap(861, Short.MAX_VALUE)
-                    .addComponent(PendingButton, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(UpdateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(25, 25, 25)))
         );
         layout.setVerticalGroup(
@@ -212,7 +213,7 @@ public class ItemDescription extends javax.swing.JPanel {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(36, 36, 36)
-                    .addComponent(PendingButton)
+                    .addComponent(UpdateButton)
                     .addContainerGap(295, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -245,9 +246,23 @@ public class ItemDescription extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_NumberOfStocksTextActionPerformed
 
-    private void PendingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PendingButtonActionPerformed
+    private void UpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_PendingButtonActionPerformed
+        int dialogResult = mainPage.tampilkanConfirmDialogItemEdit();
+        if(dialogResult != JOptionPane.YES_OPTION) {return;}
+        
+        String[] input = {
+            IdText.getText(),
+            BarcodeText.getText(),
+            TitleText.getText(),
+            DescriptionText.getText(),
+            ManufacturerText.getText(),
+            UrlText.getText(),
+            NumberOfStocksText.getText()
+        };
+        
+        mainPage.updateItem(input);
+    }//GEN-LAST:event_UpdateButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -261,9 +276,9 @@ public class ItemDescription extends javax.swing.JPanel {
     private javax.swing.JTextField ManufacturerText;
     private javax.swing.JLabel NumberOfStocksLabel;
     private javax.swing.JTextField NumberOfStocksText;
-    private javax.swing.JButton PendingButton;
     private javax.swing.JLabel TitleLabel;
     private javax.swing.JTextField TitleText;
+    private javax.swing.JButton UpdateButton;
     private javax.swing.JLabel UrlLabel;
     private javax.swing.JTextField UrlText;
     // End of variables declaration//GEN-END:variables

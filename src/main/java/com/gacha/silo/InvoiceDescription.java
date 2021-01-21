@@ -6,6 +6,7 @@
 package com.gacha.silo;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -25,6 +26,7 @@ public class InvoiceDescription extends javax.swing.JPanel {
         addMainPage(mainPage);
         addInvoice(invoice);
         fillFormInput();
+        checkButton();
     }
 
     public final void addMainPage(MainPage mainPage) {
@@ -51,6 +53,24 @@ public class InvoiceDescription extends javax.swing.JPanel {
                 break;
             case 3:
                 this.StatusText.setText("Pending");
+                break;
+        }
+    }
+    
+    public final void checkButton()
+    {
+        switch (invoice.getStatus()) {
+            case 1:
+                AcceptButton.setEnabled(true);
+                PendingButton.setEnabled(true);
+                break;
+            case 2:
+                AcceptButton.setEnabled(false);
+                PendingButton.setEnabled(false);
+                break;
+            case 3:
+                AcceptButton.setEnabled(true);
+                PendingButton.setEnabled(false);
                 break;
         }
     }
@@ -240,13 +260,23 @@ public class InvoiceDescription extends javax.swing.JPanel {
         // TODO add your handling code here:
     }// GEN-LAST:event_SupplierNameTextActionPerformed
 
-    private void AcceptButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_AcceptButtonActionPerformed
+    private void AcceptButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-    }// GEN-LAST:event_AcceptButtonActionPerformed
+        int dialogResult = mainPage.tampilkanConfirmDialogDNStatus();
+        if(dialogResult != JOptionPane.YES_OPTION) {return;}
+        
+        invoice = mainPage.changeInvoiceStatus(2, invoice.getId(), invoice);
+        mainPage.onShowInvoiceDescription(invoice);
+    }
 
-    private void PendingButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_PendingButtonActionPerformed
+    private void PendingButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-    }// GEN-LAST:event_PendingButtonActionPerformed
+        int dialogResult = mainPage.tampilkanConfirmDialogDNStatus();
+        if(dialogResult != JOptionPane.YES_OPTION) {return;}
+        
+        invoice = mainPage.changeInvoiceStatus(3, invoice.getId(), invoice);
+        mainPage.onShowInvoiceDescription(invoice);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AcceptButton;

@@ -42,7 +42,7 @@
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace pref="861" max="32767" attributes="0"/>
-                  <Component id="PendingButton" min="-2" pref="114" max="-2" attributes="0"/>
+                  <Component id="UpdateButton" min="-2" pref="114" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -91,7 +91,7 @@
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                  <Component id="PendingButton" min="-2" max="-2" attributes="0"/>
+                  <Component id="UpdateButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="295" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -118,12 +118,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="IdTextActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="PendingButton">
+    <Component class="javax.swing.JButton" name="UpdateButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Update"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PendingButtonActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="UpdateButtonActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="BarcodeLabel">

@@ -44,7 +44,7 @@ public class SuratJalanCtl {
 
     public void emailSend(String emailTo, String subject, String body) {
         JOptionPane.showMessageDialog(null, "Email sudah terkirim.");
-        mainPage.displayDeliveryNotes();
+        mainPage.displayItemList();
     }
     
     public void printDeliveryNote(DeliveryNote deliveryNote)

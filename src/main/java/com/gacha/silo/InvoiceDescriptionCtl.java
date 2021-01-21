@@ -26,4 +26,9 @@ public class InvoiceDescriptionCtl {
     public void addMainPage(MainPage mainPage) {
         this.mainPage = mainPage;
     }
+    
+    public Invoice changeInvoiceStatus(int status, String id, Invoice invoice)
+    {
+        return dbHandler.changeInvoiceStatus(status, id, invoice);
+    }
 }

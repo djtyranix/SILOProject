@@ -60,8 +60,8 @@ public class DaftarItem extends javax.swing.JPanel {
         for (int i = 0; i < itemList.size(); i++) {
             curItem = itemList.get(i);
 
-            model.addRow(new Object[] { curItem.getBarcode(), curItem.getTitle(), curItem.getDescription(),
-                    curItem.getManufacturer(), curItem.getURL(), curItem.getNumberOfStocks(), "Action", "View"});
+            model.addRow(new Object[] { curItem.getId(), curItem.getBarcode(), curItem.getTitle(), curItem.getDescription(),
+                    curItem.getManufacturer(), curItem.getURL(), curItem.getNumberOfStocks(), "View"});
         }
     }
 
