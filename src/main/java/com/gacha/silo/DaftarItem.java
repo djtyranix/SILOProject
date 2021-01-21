@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package com.gacha.silo;
+import javax.swing.*;
+import java.awt.*;
 
 /**
  *
@@ -11,11 +13,17 @@ package com.gacha.silo;
  */
 public class DaftarItem extends javax.swing.JPanel {
 
+    private MainPage mainPage;
     /**
      * Creates new form DaftarItem
      */
     public DaftarItem() {
         initComponents();
+        addMainPage(mainPage);
+    }
+    
+     public void addMainPage(MainPage mainPage) {
+        this.mainPage = mainPage;
     }
 
     /**
@@ -31,6 +39,7 @@ public class DaftarItem extends javax.swing.JPanel {
         SearchButton = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         ItemsTable = new javax.swing.JTable();
+        AddItemButton = new javax.swing.JButton();
 
         SearchButton.setText("Search");
         SearchButton.addActionListener(new java.awt.event.ActionListener() {
@@ -52,6 +61,8 @@ public class DaftarItem extends javax.swing.JPanel {
         ));
         jScrollPane2.setViewportView(ItemsTable);
 
+        AddItemButton.setText("Add");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -61,7 +72,9 @@ public class DaftarItem extends javax.swing.JPanel {
                 .addComponent(SearchField, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(SearchButton)
-                .addGap(26, 666, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(AddItemButton)
+                .addGap(24, 24, 24))
             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -70,7 +83,8 @@ public class DaftarItem extends javax.swing.JPanel {
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(SearchField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SearchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(SearchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AddItemButton))
                 .addGap(18, 18, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 415, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -79,9 +93,13 @@ public class DaftarItem extends javax.swing.JPanel {
     private void SearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_SearchButtonActionPerformed
-
-
+            
+    private void AddItemButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                    
+        // TODO add your handling code here:
+        mainPage.displayAddItems();
+    }  
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AddItemButton;
     private javax.swing.JTable ItemsTable;
     private javax.swing.JButton SearchButton;
     private javax.swing.JTextField SearchField;

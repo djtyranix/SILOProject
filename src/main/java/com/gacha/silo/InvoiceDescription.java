@@ -11,11 +11,16 @@ package com.gacha.silo;
  */
 public class InvoiceDescription extends javax.swing.JPanel {
 
+    private MainPage mainPage;
+    private Invoice invoice;
     /**
      * Creates new form InvoiceDescription
      */
     public InvoiceDescription() {
         initComponents();
+        addMainPage(mainPage);
+        addDeliveryNote(deliveryNote);
+        fillFormInput();
     }
 
     /**
