@@ -50,6 +50,7 @@ public class Invoices extends javax.swing.JPanel {
                 "Inv Number", "PO Number", "Supp Name", "Order Date", "Delivery Date", "Status", "Action"
             }
         ));
+        InvoicesTable.setRowHeight(35);
         jScrollPane1.setViewportView(InvoicesTable);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

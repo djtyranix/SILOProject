@@ -59,6 +59,7 @@ public class DaftarItem extends javax.swing.JPanel {
                 "ID", "Barcode", "Title", "Description", "Manufacturer", "URL", "Number of Stocks", "Action"
             }
         ));
+        ItemsTable.setRowHeight(35);
         jScrollPane2.setViewportView(ItemsTable);
 
         AddItemButton.setText("Add");
