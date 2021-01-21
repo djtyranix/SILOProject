@@ -383,9 +383,9 @@ public class DBHandler {
         try
         {
             Connection con = initDB();
-            PreparedStatement st = con.prepareStatement("SELECT * FROM item WHERE title = ? OR barcode = ?");
+            PreparedStatement st = con.prepareStatement("SELECT * FROM item WHERE title LIKE ? OR barcode = ?");
             
-            st.setString(1, keyword);
+            st.setString(1, "%" + keyword + "%");
             st.setString(2, keyword);
             
             //System.out.print(st);
