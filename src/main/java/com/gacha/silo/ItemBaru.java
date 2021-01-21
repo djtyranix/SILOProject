@@ -128,7 +128,7 @@ public class ItemBaru extends javax.swing.JPanel {
 
     private void SubmitItemButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitItemButtonActionPerformed
         // TODO add your handling code here:
-        int dialogResult = mainPage.tampilkanConfirmDialog();
+        int dialogResult = mainPage.tampilkanConfirmDialogItem();
         if(dialogResult != JOptionPane.YES_OPTION) {return;}
 
         String[] input = {
@@ -140,7 +140,7 @@ public class ItemBaru extends javax.swing.JPanel {
             NumberOfStocksText.getText()
         };
 
-        mainPage.newSuratJalan(input);
+        mainPage.newItem(input);
     }//GEN-LAST:event_SubmitItemButtonActionPerformed
 
 

@@ -106,6 +106,16 @@ public class MainPage extends javax.swing.JFrame {
         return suratJalanBaruCtl.tampilkanConfirmDialog();
     }
     
+    public int tampilkanConfirmDialogItem()
+    {
+        return itemBaruCtl.tampilkanConfirmDialog();
+    }
+    
+    public int tampilkanConfirmDialogInvoice()
+    {
+        return invoicesBaruCtl.tampilkanConfirmDialog();
+    }
+    
     public void newSuratJalan(String[] input)
     {
         DeliveryNote currentDeliveryNote = suratJalanBaruCtl.newSuratJalan(input);

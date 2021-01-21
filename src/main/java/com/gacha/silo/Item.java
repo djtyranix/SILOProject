@@ -31,6 +31,16 @@ public class Item {
         setURL(URL);
         setNumberOfStocks(NumberOfStocks);      
     }
+    
+    public Item(String Barcode, String Title, String Description, String Manufacturer, String URL,
+            String NumberOfStocks) {
+        setBarcode(Barcode);
+        setTitle(Title);
+        setDescription(Description);
+        setManufacturer(Manufacturer);
+        setURL(URL);
+        setNumberOfStocks(NumberOfStocks);      
+    }
 
     public String getId() {
         return this.Id;

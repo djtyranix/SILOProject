@@ -234,7 +234,7 @@ public class DBHandler {
             st.setString(4, invoice.getDeliveryDate());
             st.setInt(5, invoice.getStatus());
             
-            //System.out.print(st);
+//            System.out.print(st);
             st.executeUpdate();
             
             try (ResultSet generatedKeys = st.getGeneratedKeys()) {
@@ -242,7 +242,7 @@ public class DBHandler {
                     insertId = generatedKeys.getString(1);
                 }
                 else {
-                    throw new SQLException("Creating item failed, no ID obtained.");
+                    throw new SQLException("Creating invoice failed, no ID obtained.");
                 }
             }
             catch (SQLException e)
