@@ -19,23 +19,23 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="DeliveryNotesNumberLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="CustomerNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="OrderDateLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="DeliveryDateLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="StatusLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="StatusLabel1" min="-2" max="-2" attributes="0"/>
-                  <Component id="InvoiceNumberLabel" min="-2" pref="70" max="-2" attributes="0"/>
+                  <Component id="BarcodeLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="TitleLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="DescriptionLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="ManufacturerLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="UrlLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="NumberOfStocksLabel" min="-2" max="-2" attributes="0"/>
+                  <Component id="IdLabel" min="-2" pref="70" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="InvoiceNumberText" min="-2" pref="202" max="-2" attributes="0"/>
-                  <Component id="DeliveryNotesNumberText" alignment="0" min="-2" pref="202" max="-2" attributes="0"/>
-                  <Component id="StatusText" alignment="0" min="-2" pref="202" max="-2" attributes="0"/>
-                  <Component id="DeliveryDateText" alignment="0" min="-2" pref="202" max="-2" attributes="0"/>
-                  <Component id="OrderDateText" alignment="0" min="-2" pref="202" max="-2" attributes="0"/>
-                  <Component id="CustomerNameText" alignment="0" min="-2" pref="202" max="-2" attributes="0"/>
-                  <Component id="StatusText1" alignment="0" min="-2" pref="202" max="-2" attributes="0"/>
+                  <Component id="IdText" min="-2" pref="202" max="-2" attributes="0"/>
+                  <Component id="BarcodeText" alignment="0" min="-2" pref="202" max="-2" attributes="0"/>
+                  <Component id="UrlText" alignment="0" min="-2" pref="202" max="-2" attributes="0"/>
+                  <Component id="ManufacturerText" alignment="0" min="-2" pref="202" max="-2" attributes="0"/>
+                  <Component id="DescriptionText" alignment="0" min="-2" pref="202" max="-2" attributes="0"/>
+                  <Component id="TitleText" alignment="0" min="-2" pref="202" max="-2" attributes="0"/>
+                  <Component id="NumberOfStocksText" alignment="0" min="-2" pref="202" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="650" max="32767" attributes="0"/>
           </Group>
@@ -51,55 +51,55 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="0" pref="44" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="InvoiceNumberText" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
-                  <Component id="InvoiceNumberLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="IdLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="IdText" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="DeliveryNotesNumberLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="DeliveryNotesNumberText" alignment="0" min="-2" pref="22" max="-2" attributes="0"/>
+                  <Component id="BarcodeLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="BarcodeText" alignment="0" min="-2" pref="22" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="CustomerNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="CustomerNameText" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="TitleLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="TitleText" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="OrderDateLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="OrderDateText" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="DescriptionLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="DescriptionText" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="DeliveryDateLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="DeliveryDateText" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="ManufacturerLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="ManufacturerText" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="StatusLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="StatusText" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="UrlLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="UrlText" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="StatusText1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="StatusLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="NumberOfStocksText" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="NumberOfStocksLabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+              <EmptySpace pref="70" max="32767" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                   <Component id="PendingButton" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="293" max="32767" attributes="0"/>
+                  <EmptySpace pref="295" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="InvoiceNumberLabel">
+    <Component class="javax.swing.JLabel" name="IdLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="0"/>
@@ -108,14 +108,14 @@
         <Property name="text" type="java.lang.String" value="ID"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="StatusText">
+    <Component class="javax.swing.JTextField" name="UrlText">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="StatusTextActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="UrlTextActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="InvoiceNumberText">
+    <Component class="javax.swing.JTextField" name="IdText">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InvoiceNumberTextActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="IdTextActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="PendingButton">
@@ -126,7 +126,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PendingButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="DeliveryNotesNumberLabel">
+    <Component class="javax.swing.JLabel" name="BarcodeLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="0"/>
@@ -135,12 +135,12 @@
         <Property name="text" type="java.lang.String" value="Barcode"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="DeliveryNotesNumberText">
+    <Component class="javax.swing.JTextField" name="BarcodeText">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DeliveryNotesNumberTextActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BarcodeTextActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="CustomerNameLabel">
+    <Component class="javax.swing.JLabel" name="TitleLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="0"/>
@@ -149,12 +149,12 @@
         <Property name="text" type="java.lang.String" value="Title"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="CustomerNameText">
+    <Component class="javax.swing.JTextField" name="TitleText">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CustomerNameTextActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TitleTextActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="OrderDateLabel">
+    <Component class="javax.swing.JLabel" name="DescriptionLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="0"/>
@@ -163,12 +163,12 @@
         <Property name="text" type="java.lang.String" value="Description"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="OrderDateText">
+    <Component class="javax.swing.JTextField" name="DescriptionText">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="OrderDateTextActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DescriptionTextActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="DeliveryDateLabel">
+    <Component class="javax.swing.JLabel" name="ManufacturerLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="0"/>
@@ -177,12 +177,12 @@
         <Property name="text" type="java.lang.String" value="Manufacturer"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="DeliveryDateText">
+    <Component class="javax.swing.JTextField" name="ManufacturerText">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DeliveryDateTextActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ManufacturerTextActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="StatusLabel">
+    <Component class="javax.swing.JLabel" name="UrlLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="0"/>
@@ -191,7 +191,7 @@
         <Property name="text" type="java.lang.String" value="URL"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="StatusLabel1">
+    <Component class="javax.swing.JLabel" name="NumberOfStocksLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="0"/>
@@ -200,9 +200,9 @@
         <Property name="text" type="java.lang.String" value="Number Of Stocks"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="StatusText1">
+    <Component class="javax.swing.JTextField" name="NumberOfStocksText">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="StatusText1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NumberOfStocksTextActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

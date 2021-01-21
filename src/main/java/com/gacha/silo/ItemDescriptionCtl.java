@@ -4,17 +4,18 @@
  * and open the template in the editor.
  */
 package com.gacha.silo;
+import javax.swing.JOptionPane;
 import java.util.*;
 
 /**
  *
- * @author micha
+ * @author Kevin
  */
-public class ItemCtl {
+public class ItemDescriptionCtl {
     DBHandler dbHandler;
     MainPage mainPage;
     
-    public ItemCtl(MainPage mainPage)
+    public ItemDescriptionCtl(MainPage mainPage)
     {
         this.addMainPage(mainPage);
     }
@@ -23,21 +24,8 @@ public class ItemCtl {
         this.dbHandler = dbHandler;
     }
 
-    public final void addMainPage(MainPage mainPage) {
+    public void addMainPage(MainPage mainPage) {
         this.mainPage = mainPage;
     }
-    
-    public ArrayList<Item> getItem()
-    {
-        ArrayList<Item> Items = dbHandler.getAllItems();
-        
-        return Items;
-    }
-    
-    public ArrayList<Item> searchItem(String keyword)
-    {
-        ArrayList<Item> Items = dbHandler.searchItem(keyword);
-        
-        return Items;
-    }
+   
 }

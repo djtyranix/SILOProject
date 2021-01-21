@@ -26,6 +26,7 @@ com\gacha\silo\DaftarItem.class
 com\gacha\silo\MainPage$5.class
 com\gacha\silo\InvoicesCtl.class
 com\gacha\silo\InvoiceBaru.class
+com\gacha\silo\ItemDescriptionCtl.class
 com\gacha\silo\SuratJalanBaruCtl.class
 com\gacha\silo\Item.class
 com\gacha\silo\DeliveryNotesDescription$5.class
@@ -62,6 +63,7 @@ com\gacha\silo\MainPage$4.class
 com\gacha\silo\DeliveryNotesDescription.class
 com\gacha\silo\DeliveryNotesDescriptionCtl.class
 com\gacha\silo\Invoice.class
+com\gacha\silo\DaftarItem$2.class
 com\gacha\silo\DeliveryNote.class
 com\gacha\silo\Invoices$1.class
 com\gacha\silo\ItemBaruCtl.class
