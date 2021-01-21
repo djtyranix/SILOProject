@@ -6,6 +6,8 @@
 package com.gacha.silo;
 import java.util.*;
 import javax.swing.JOptionPane;
+import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
 /**
  *
  * @author micha
@@ -46,5 +48,19 @@ public class SuratJalanCtl {
     {
         JOptionPane.showMessageDialog(null, "Email sudah terkirim.");
         mainPage.displayDeliveryNotes();
+    }
+    
+    public void printDeliveryNote(DeliveryNote deliveryNote)
+    {
+        PrinterJob printJob = PrinterJob.getPrinterJob();
+        printJob.setPrintable(new TextPrinter(deliveryNote.details()));
+        boolean doPrint = printJob.printDialog();
+        if (doPrint) {
+            try {
+                printJob.print();
+            } catch (PrinterException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

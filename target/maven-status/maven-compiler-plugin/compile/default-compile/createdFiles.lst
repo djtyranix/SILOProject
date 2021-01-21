@@ -2,11 +2,13 @@ com\gacha\silo\DaftarSuratJalan$2.class
 com\gacha\silo\DeliveryNotesDescription$3.class
 com\gacha\silo\InvoiceDescription$8.class
 com\gacha\silo\MainPage$8.class
+com\gacha\silo\TextPrinter.class
 com\gacha\silo\ItemDescription$6.class
 com\gacha\silo\MainPage$1.class
 com\gacha\silo\SuratJalanCtl.class
 com\gacha\silo\ItemDescription$3.class
 com\gacha\silo\ItemDescription.class
+com\gacha\silo\TextPrinter$1.class
 com\gacha\silo\DeliveryNotesDescription$6.class
 com\gacha\silo\ItemCtl.class
 com\gacha\silo\InvoiceDescription$1.class
@@ -15,6 +17,7 @@ com\gacha\silo\DBHandler.class
 com\gacha\silo\DeliveryNotesDescription$9.class
 com\gacha\silo\EmailDeliveryNotesForm.class
 com\gacha\silo\BuatSuratJalanCtl.class
+com\gacha\silo\DeliveryNotesDescription$11.class
 com\gacha\silo\LihatDaftarItemCtl.class
 com\gacha\silo\DaftarSuratJalan$3.class
 com\gacha\silo\DeliveryNotesDescription$2.class

@@ -42,6 +42,7 @@
                   <Component id="EmailButton" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
                   <Component id="SignButton" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
                   <Component id="PreparingButton" min="-2" pref="114" max="-2" attributes="0"/>
+                  <Component id="PrintButton" min="-2" pref="114" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
           </Group>
@@ -82,6 +83,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="DeliveryDateLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="DeliveryDateText" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="PrintButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -282,6 +284,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PreparingButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="PrintButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Print"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PrintButtonActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
