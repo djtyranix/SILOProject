@@ -48,6 +48,7 @@ com\gacha\silo\InvoicesBaruCtl.class
 com\gacha\silo\LihatDaftarSPCtl.class
 com\gacha\silo\MainPage$4.class
 com\gacha\silo\DeliveryNotesDescription.class
+com\gacha\silo\DeliveryNotesDescriptionCtl.class
 com\gacha\silo\Invoice.class
 com\gacha\silo\DeliveryNote.class
 com\gacha\silo\Invoices$1.class
