@@ -24,6 +24,7 @@ public class DeliveryNotesDescription extends javax.swing.JPanel {
         addDeliveryNote(deliveryNote);
         fillFormInput();
         fillTable(itemList);
+        checkButton();
     }
     
     public final void addMainPage(MainPage mainPage) {
@@ -72,7 +73,40 @@ public class DeliveryNotesDescription extends javax.swing.JPanel {
         }
     }
     
-    
+    public final void checkButton()
+    {
+        switch(deliveryNote.getStatus())
+        {
+            case 1:
+                PreparingButton.setEnabled(true);
+                PendingButton.setEnabled(true);
+                SignButton.setEnabled(false);
+                EmailButton.setEnabled(true);
+                PrintButton.setEnabled(true);
+                break;
+            case 2:
+                PreparingButton.setEnabled(false);
+                PendingButton.setEnabled(true);
+                SignButton.setEnabled(true);
+                EmailButton.setEnabled(true);
+                PrintButton.setEnabled(true);
+                break;
+            case 3:
+                PreparingButton.setEnabled(false);
+                PendingButton.setEnabled(false);
+                SignButton.setEnabled(false);
+                EmailButton.setEnabled(true);
+                PrintButton.setEnabled(true);
+                break;
+            case 4:
+                PreparingButton.setEnabled(true);
+                PendingButton.setEnabled(true);
+                SignButton.setEnabled(false);
+                EmailButton.setEnabled(false);
+                PrintButton.setEnabled(false);
+                break;
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -101,6 +135,7 @@ public class DeliveryNotesDescription extends javax.swing.JPanel {
         SignButton = new javax.swing.JButton();
         EmailButton = new javax.swing.JButton();
         PreparingButton = new javax.swing.JButton();
+        PrintButton = new javax.swing.JButton();
 
         DNDescTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -204,6 +239,13 @@ public class DeliveryNotesDescription extends javax.swing.JPanel {
             }
         });
 
+        PrintButton.setText("Print");
+        PrintButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PrintButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -231,7 +273,8 @@ public class DeliveryNotesDescription extends javax.swing.JPanel {
                     .addComponent(PendingButton, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(EmailButton, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(SignButton, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(PreparingButton, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(PreparingButton, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PrintButton, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23))
         );
         layout.setVerticalGroup(
@@ -262,7 +305,8 @@ public class DeliveryNotesDescription extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(DeliveryDateLabel)
-                    .addComponent(DeliveryDateText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(DeliveryDateText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PrintButton))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(StatusLabel)
@@ -328,6 +372,11 @@ public class DeliveryNotesDescription extends javax.swing.JPanel {
         mainPage.onShowDNDescription(deliveryNote);
     }//GEN-LAST:event_PendingButtonActionPerformed
 
+    private void PrintButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrintButtonActionPerformed
+        // TODO add your handling code here:
+        mainPage.printDeliveryNote(deliveryNote);
+    }//GEN-LAST:event_PrintButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel CustomerNameLabel;
@@ -344,6 +393,7 @@ public class DeliveryNotesDescription extends javax.swing.JPanel {
     private javax.swing.JTextField OrderDateText;
     private javax.swing.JButton PendingButton;
     private javax.swing.JButton PreparingButton;
+    private javax.swing.JButton PrintButton;
     private javax.swing.JButton SignButton;
     private javax.swing.JLabel StatusLabel;
     private javax.swing.JTextField StatusText;

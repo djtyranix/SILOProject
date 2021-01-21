@@ -256,7 +256,12 @@ public class MainPage extends javax.swing.JFrame {
     public void emailSend(String emailTo, String subject, String body) {
         suratJalanCtl.emailSend(emailTo, subject, body);
     }
-
+    
+    public void printDeliveryNote(DeliveryNote deliveryNote)
+    {
+        suratJalanCtl.printDeliveryNote(deliveryNote);
+    }
+    
     /**
      * Creates new form MainPage
      */
