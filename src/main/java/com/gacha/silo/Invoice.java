@@ -23,6 +23,16 @@ public class Invoice {
         setPoNumber(poNumber);
         setSupplierName(supplierName);
         setOrderDate(orderDate);
+        setDeliveryDate(deliveryDate);
+        setStatus(1);
+    }
+    
+    public Invoice(String poNumber, String supplierName, String orderDate, String deliveryDate)
+    {
+        setPoNumber(poNumber);
+        setSupplierName(supplierName);
+        setOrderDate(orderDate);
+        setDeliveryDate(deliveryDate);
         setStatus(1);
     }
     

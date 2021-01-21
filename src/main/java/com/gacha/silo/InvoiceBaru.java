@@ -111,7 +111,7 @@ public class InvoiceBaru extends javax.swing.JPanel {
 
     private void SubmitInvoiceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitInvoiceButtonActionPerformed
         // TODO add your handling code here:
-        int dialogResult = mainPage.tampilkanConfirmDialog();
+        int dialogResult = mainPage.tampilkanConfirmDialogInvoice();
         if(dialogResult != JOptionPane.YES_OPTION) {return;}
 
         String[] input = {
@@ -121,7 +121,7 @@ public class InvoiceBaru extends javax.swing.JPanel {
             DeliveryDateText.getText()
         };
 
-        mainPage.newSuratJalan(input);
+        mainPage.newInvoice(input);
     }//GEN-LAST:event_SubmitInvoiceButtonActionPerformed
 
 
