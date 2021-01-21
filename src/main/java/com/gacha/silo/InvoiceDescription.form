@@ -48,42 +48,42 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="InvoiceNumberLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="PendingButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="InvoiceNumberText" min="-2" pref="24" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="InvoiceNumberText" alignment="0" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="InvoiceNumberLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="PendingButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="AcceptButton" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="PONumberLabel" min="-2" max="-2" attributes="0"/>
+                          <Component id="PONumberText" min="-2" pref="22" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="SupplierNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="SupplierNameText" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="OrderDateLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="OrderDateText" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="DeliveryDateLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="DeliveryDateText" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="StatusLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="StatusText" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="PONumberLabel" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="PONumberText" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                      <Component id="AcceptButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="SupplierNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="SupplierNameText" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="OrderDateLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="OrderDateText" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="DeliveryDateLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="DeliveryDateText" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="StatusLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="StatusText" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+              <EmptySpace pref="137" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

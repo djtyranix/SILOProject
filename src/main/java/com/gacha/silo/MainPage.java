@@ -4,15 +4,17 @@
  * and open the template in the editor.
  */
 package com.gacha.silo;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
+
 /**
  *
  * @author micha
  */
 public class MainPage extends javax.swing.JFrame {
-    
+
     private CardLayout cardLayout = new CardLayout();
     private JPanel cardPanel;
     private HomePage homePage;
@@ -33,17 +35,19 @@ public class MainPage extends javax.swing.JFrame {
     private ItemDescriptionCtl itemsDescCtl;
     private SuratJalanCtl suratJalanCtl;
     private ItemCtl itemCtl;
+    private InvoiceCtl invoiceCtl;
     private EmailDeliveryNotesForm emailForm;
-    
-    public void initObjects()
-    {
+
+    public void initObjects() {
         dbHandler = new DBHandler();
         suratJalanCtl = new SuratJalanCtl(this);
         suratJalanCtl.addDBHandler(dbHandler);
         itemCtl = new ItemCtl(this);
         itemCtl.addDBHandler(dbHandler);
+        invoiceCtl = new InvoiceCtl(this);
+        invoiceCtl.addDBHandler(dbHandler);
         homePage = new HomePage();
-        invoice = new Invoices();
+        invoice = new Invoices(this);
         itemBaru = new ItemBaru(this);
         invoiceBaru = new InvoiceBaru(this);
         suratJalanBaruCtl = new SuratJalanBaruCtl(this);
@@ -53,8 +57,8 @@ public class MainPage extends javax.swing.JFrame {
         itemBaruCtl = new ItemBaruCtl(this);
         itemBaruCtl.addDBHandler(dbHandler);
         deliveryNotesDescCtl = new DeliveryNotesDescriptionCtl(this);
-        deliveryNotesDescCtl.addDBHandler(dbHandler);        
-        
+        deliveryNotesDescCtl.addDBHandler(dbHandler);
+
         cardPanel = new JPanel();
         cardPanel.setLayout(cardLayout);
         cardPanel.add(homePage, "Empty Panel");
@@ -63,110 +67,90 @@ public class MainPage extends javax.swing.JFrame {
         cardPanel.add(invoice, "Invoice");
         setContentPane(cardPanel);
     }
-    
-    public void displayMainPage()
-    {
+
+    public void displayMainPage() {
         cardLayout.show(cardPanel, "Empty Panel");
     }
-    
-    public void displayItemList()
-    {
-        if(daftarItem != null)
-        {
+
+    public void displayItemList() {
+        if (daftarItem != null) {
             cardPanel.remove(daftarItem);
         }
-        
+
         daftarItem = new DaftarItem(this);
         cardPanel.add(daftarItem, "Daftar Item");
         cardLayout.show(cardPanel, "Daftar Item");
     }
-    
-    public void displayDeliveryNotes()
-    {
-        if(daftarSuratJalan != null)
-        {
+
+    public void displayDeliveryNotes() {
+        if (daftarSuratJalan != null) {
             cardPanel.remove(daftarSuratJalan);
         }
-        
+
         daftarSuratJalan = new DaftarSuratJalan(this);
         cardPanel.add(daftarSuratJalan, "Daftar Surat Jalan");
         cardLayout.show(cardPanel, "Daftar Surat Jalan");
     }
-    
-    public void displayAddDeliveryNotes()
-    {
-        if(buatSuratJalan != null)
-        {
+
+    public void displayAddDeliveryNotes() {
+        if (buatSuratJalan != null) {
             cardPanel.remove(buatSuratJalan);
         }
-        
+
         buatSuratJalan = new BuatSuratJalanForm(this);
         cardPanel.add(buatSuratJalan, "Buat Surat Jalan");
         cardLayout.show(cardPanel, "Buat Surat Jalan");
     }
-    
-    public void displayAddItems()
-    {
+
+    public void displayAddItems() {
         cardLayout.show(cardPanel, "Tambah Item");
     }
-    
-    public void displayAddInvoices()
-    {
+
+    public void displayAddInvoices() {
         cardLayout.show(cardPanel, "Buat Invoice");
     }
-    
-    public void displayInvoice()
-    {
+
+    public void displayInvoice() {
         cardLayout.show(cardPanel, "Invoice");
     }
-    
-    public void displayEmailForm(DeliveryNote deliveryNote)
-    {
-        if(emailForm != null)
-        {
+
+    public void displayEmailForm(DeliveryNote deliveryNote) {
+        if (emailForm != null) {
             cardPanel.remove(emailForm);
         }
-        
+
         emailForm = new EmailDeliveryNotesForm(this, deliveryNote);
         cardPanel.add(emailForm, "Email Form");
         cardLayout.show(cardPanel, "Email Form");
     }
-    
-    public int tampilkanConfirmDialogDNStatus()
-    {
-        int dialogResult = JOptionPane.showConfirmDialog(null, "Apakah anda "
-                + "yakin ingin mengubah status?",
+
+    public int tampilkanConfirmDialogDNStatus() {
+        int dialogResult = JOptionPane.showConfirmDialog(null, "Apakah anda " + "yakin ingin mengubah status?",
                 "Confirmation", JOptionPane.YES_NO_OPTION);
         return dialogResult;
     }
-    
-    public int tampilkanConfirmDialogDNSign()
-    {
-        int dialogResult = JOptionPane.showConfirmDialog(null, "Apakah anda "
-                + "yakin pesanan sudah sesuai?",
+
+    public int tampilkanConfirmDialogDNSign() {
+        int dialogResult = JOptionPane.showConfirmDialog(null, "Apakah anda " + "yakin pesanan sudah sesuai?",
                 "Confirmation", JOptionPane.YES_NO_OPTION);
         return dialogResult;
     }
-    
-    public int tampilkanConfirmDialog()
-    {
+
+    public int tampilkanConfirmDialog() {
         return suratJalanBaruCtl.tampilkanConfirmDialog();
     }
-    
-    public int tampilkanConfirmDialogItem()
-    {
+
+    public int tampilkanConfirmDialogItem() {
         return itemBaruCtl.tampilkanConfirmDialog();
     }
-    
-    public int tampilkanConfirmDialogInvoice()
-    {
+
+    public int tampilkanConfirmDialogInvoice() {
         return invoicesBaruCtl.tampilkanConfirmDialog();
     }
-    
-    public void onShowDNDescription(DeliveryNote currentDeliveryNote)
-    {
+
+    public void onShowDNDescription(DeliveryNote currentDeliveryNote) {
         ArrayList<Item> itemList = deliveryNotesDescCtl.showCorrespondItems(currentDeliveryNote);
-        
+
         if (lastDeliveryNotesDescription != null) {
             cardPanel.remove(lastDeliveryNotesDescription);
         }
@@ -174,10 +158,9 @@ public class MainPage extends javax.swing.JFrame {
         cardPanel.add(lastDeliveryNotesDescription, "Detail Surat Jalan");
         cardLayout.show(cardPanel, "Detail Surat Jalan");
     }
-    
-    public void onShowItemDescription(Item currentItem)
-    {
-        
+
+    public void onShowItemDescription(Item currentItem) {
+
         if (lastItemDescription != null) {
             cardPanel.remove(lastItemDescription);
         }
@@ -185,17 +168,25 @@ public class MainPage extends javax.swing.JFrame {
         cardPanel.add(lastItemDescription, "Detail Item");
         cardLayout.show(cardPanel, "Detail Item");
     }
-    
-    public void newSuratJalan(String[] input)
-    {
+
+    public void onShowInvoiceDescription(Invoice currentInvoice) {
+
+        if (lastInvoiceDescription != null) {
+            cardPanel.remove(lastInvoiceDescription);
+        }
+        lastInvoiceDescription = new InvoiceDescription(this, currentInvoice);
+        cardPanel.add(lastInvoiceDescription, "Detail Invoice");
+        cardLayout.show(cardPanel, "Detail Invoice");
+    }
+
+    public void newSuratJalan(String[] input) {
         DeliveryNote currentDeliveryNote = suratJalanBaruCtl.newSuratJalan(input);
         ArrayList<Item> itemList = deliveryNotesDescCtl.showCorrespondItems(currentDeliveryNote);
-        
-        if(currentDeliveryNote == null)
-        {
+
+        if (currentDeliveryNote == null) {
             return;
         }
-        
+
         if (lastDeliveryNotesDescription != null) {
             cardPanel.remove(lastDeliveryNotesDescription);
         }
@@ -203,67 +194,69 @@ public class MainPage extends javax.swing.JFrame {
         cardPanel.add(lastDeliveryNotesDescription, "Detail Surat Jalan");
         cardLayout.show(cardPanel, "Detail Surat Jalan");
     }
-    
-    public void newItem(String[] input)
-    {
+
+    public void newItem(String[] input) {
         Item currentItem = itemBaruCtl.newItem(input);
-        
-        if(currentItem == null)
-        {
+
+        if (currentItem == null) {
             return;
         }
-        
+
     }
-    
-    public void newInvoice(String[] input)
-    {
+
+    public void newInvoice(String[] input) {
         Invoice currentInvoice = invoicesBaruCtl.newInvoices(input);
-        
-        if(currentInvoice == null)
-        {
+
+        if (currentInvoice == null) {
             return;
         }
-        
+
     }
-    
-    public ArrayList<DeliveryNote> getDeliveryNote()
-    {
+
+    public ArrayList<DeliveryNote> getDeliveryNote() {
         ArrayList<DeliveryNote> deliveryNotes = suratJalanCtl.getDeliveryNote();
-        
+
         return deliveryNotes;
     }
-    
-    public ArrayList<Item> getItem()
-    {
+
+    public ArrayList<Item> getItem() {
         ArrayList<Item> items = itemCtl.getItem();
-        
+
         return items;
     }
-    
-    public ArrayList<DeliveryNote> searchDeliveryNote(String keyword)
-    {
+
+    public ArrayList<Invoice> getInvoice() {
+        ArrayList<Invoice> invoices = invoiceCtl.getInvoice();
+
+        return invoices;
+    }
+
+    public ArrayList<DeliveryNote> searchDeliveryNote(String keyword) {
         ArrayList<DeliveryNote> deliveryNotes = suratJalanCtl.searchDeliveryNote(keyword);
-        
+
         return deliveryNotes;
     }
-    
-    public DeliveryNote changeDNStatus(int status, String id, DeliveryNote deliveryNote)
-    {
+
+    public DeliveryNote changeDNStatus(int status, String id, DeliveryNote deliveryNote) {
         return deliveryNotesDescCtl.changeDNStatus(status, id, deliveryNote);
     }
-    
-    public ArrayList<Item> searchItem(String keyword)
-    {
+
+    public ArrayList<Item> searchItem(String keyword) {
         ArrayList<Item> items = itemCtl.searchItem(keyword);
-        
+
         return items;
     }
-    
-    public void emailSend(String emailTo, String subject, String body)
-    {
+
+    public ArrayList<Invoice> searchInvoice(String keyword) {
+        ArrayList<Invoice> invoices = invoiceCtl.searchInvoice(keyword);
+
+        return invoices;
+    }
+
+    public void emailSend(String emailTo, String subject, String body) {
         suratJalanCtl.emailSend(emailTo, subject, body);
     }
-    
+
     /**
      * Creates new form MainPage
      */
@@ -279,7 +272,8 @@ public class MainPage extends javax.swing.JFrame {
      * regenerated by the Form Editor.
      */
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
@@ -306,18 +300,15 @@ public class MainPage extends javax.swing.JFrame {
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1000, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 526, Short.MAX_VALUE)
-        );
+        jPanel1Layout.setHorizontalGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(0, 1000, Short.MAX_VALUE));
+        jPanel1Layout.setVerticalGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(0, 526, Short.MAX_VALUE));
 
         jMenu5.setText("File");
 
-        HomePageMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        HomePageMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H,
+                java.awt.event.InputEvent.CTRL_DOWN_MASK));
         HomePageMenu.setText("Home Page");
         HomePageMenu.setName("HomePageMenu"); // NOI18N
         HomePageMenu.addActionListener(new java.awt.event.ActionListener() {
@@ -328,7 +319,8 @@ public class MainPage extends javax.swing.JFrame {
         jMenu5.add(HomePageMenu);
         jMenu5.add(jSeparator2);
 
-        ItemsMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_I, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        ItemsMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_I,
+                java.awt.event.InputEvent.CTRL_DOWN_MASK));
         ItemsMenu.setText("Items");
         ItemsMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -337,7 +329,8 @@ public class MainPage extends javax.swing.JFrame {
         });
         jMenu5.add(ItemsMenu);
 
-        CreateItemMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_I, java.awt.event.InputEvent.SHIFT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        CreateItemMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_I,
+                java.awt.event.InputEvent.SHIFT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
         CreateItemMenu.setText("Create Item");
         CreateItemMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -347,7 +340,8 @@ public class MainPage extends javax.swing.JFrame {
         jMenu5.add(CreateItemMenu);
         jMenu5.add(jSeparator3);
 
-        DeliveryNotesMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        DeliveryNotesMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D,
+                java.awt.event.InputEvent.CTRL_DOWN_MASK));
         DeliveryNotesMenu.setText("Delivery Notes");
         DeliveryNotesMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -356,7 +350,8 @@ public class MainPage extends javax.swing.JFrame {
         });
         jMenu5.add(DeliveryNotesMenu);
 
-        CreateDeliveryNotesMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.SHIFT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        CreateDeliveryNotesMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D,
+                java.awt.event.InputEvent.SHIFT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
         CreateDeliveryNotesMenu.setText("Create Delivery Notes");
         CreateDeliveryNotesMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -366,7 +361,8 @@ public class MainPage extends javax.swing.JFrame {
         jMenu5.add(CreateDeliveryNotesMenu);
         jMenu5.add(jSeparator4);
 
-        InvoicesMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        InvoicesMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E,
+                java.awt.event.InputEvent.CTRL_DOWN_MASK));
         InvoicesMenu.setText("Invoices");
         InvoicesMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -375,7 +371,8 @@ public class MainPage extends javax.swing.JFrame {
         });
         jMenu5.add(InvoicesMenu);
 
-        CreateInvoiceMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.SHIFT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        CreateInvoiceMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E,
+                java.awt.event.InputEvent.SHIFT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
         CreateInvoiceMenu.setText("Create Invoice");
         CreateInvoiceMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -389,7 +386,8 @@ public class MainPage extends javax.swing.JFrame {
         jMenu6.setText("Edit");
         jMenu6.add(jSeparator1);
 
-        jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_W, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_W,
+                java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItem5.setText("Quit Application");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -404,68 +402,68 @@ public class MainPage extends javax.swing.JFrame {
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(
+                jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
+                javax.swing.GroupLayout.PREFERRED_SIZE));
+        layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(
+                jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ItemsMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemsMenuActionPerformed
+    private void ItemsMenuActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ItemsMenuActionPerformed
         // TODO add your handling code here:
         displayItemList();
-        
-    }//GEN-LAST:event_ItemsMenuActionPerformed
 
-    private void DeliveryNotesMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeliveryNotesMenuActionPerformed
+    }// GEN-LAST:event_ItemsMenuActionPerformed
+
+    private void DeliveryNotesMenuActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_DeliveryNotesMenuActionPerformed
         // TODO add your handling code here:
         displayDeliveryNotes();
-    }//GEN-LAST:event_DeliveryNotesMenuActionPerformed
+    }// GEN-LAST:event_DeliveryNotesMenuActionPerformed
 
-    private void CreateDeliveryNotesMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateDeliveryNotesMenuActionPerformed
+    private void CreateDeliveryNotesMenuActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_CreateDeliveryNotesMenuActionPerformed
         // TODO add your handling code here:
         displayAddDeliveryNotes();
-    }//GEN-LAST:event_CreateDeliveryNotesMenuActionPerformed
+    }// GEN-LAST:event_CreateDeliveryNotesMenuActionPerformed
 
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jMenuItem5ActionPerformed
         // TODO add your handling code here:
         System.exit(0);
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
+    }// GEN-LAST:event_jMenuItem5ActionPerformed
 
-    private void HomePageMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomePageMenuActionPerformed
+    private void HomePageMenuActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_HomePageMenuActionPerformed
         // TODO add your handling code here:
         displayMainPage();
-    }//GEN-LAST:event_HomePageMenuActionPerformed
+    }// GEN-LAST:event_HomePageMenuActionPerformed
 
-    private void InvoicesMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InvoicesMenuActionPerformed
+    private void InvoicesMenuActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_InvoicesMenuActionPerformed
         // TODO add your handling code here:
         displayInvoice();
-    }//GEN-LAST:event_InvoicesMenuActionPerformed
+    }// GEN-LAST:event_InvoicesMenuActionPerformed
 
-    private void CreateItemMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateItemMenuActionPerformed
+    private void CreateItemMenuActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_CreateItemMenuActionPerformed
         // TODO add your handling code here:
         displayAddItems();
-    }//GEN-LAST:event_CreateItemMenuActionPerformed
+    }// GEN-LAST:event_CreateItemMenuActionPerformed
 
-    private void CreateInvoiceMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateInvoiceMenuActionPerformed
+    private void CreateInvoiceMenuActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_CreateInvoiceMenuActionPerformed
         // TODO add your handling code here:
         displayAddInvoices();
-    }//GEN-LAST:event_CreateInvoiceMenuActionPerformed
+    }// GEN-LAST:event_CreateInvoiceMenuActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+        // <editor-fold defaultstate="collapsed" desc=" Look and feel setting code
+        // (optional) ">
+        /*
+         * If Nimbus (introduced in Java SE 6) is not available, stay with the default
+         * look and feel. For details see
+         * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -483,7 +481,7 @@ public class MainPage extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(MainPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
+        // </editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {

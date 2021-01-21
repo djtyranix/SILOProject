@@ -5,9 +5,11 @@ com\gacha\silo\MainPage$8.class
 com\gacha\silo\ItemDescription$6.class
 com\gacha\silo\MainPage$1.class
 com\gacha\silo\SuratJalanCtl.class
+com\gacha\silo\InvoiceDescriptionCtl.class
 com\gacha\silo\ItemDescription$3.class
 com\gacha\silo\ItemDescription.class
 com\gacha\silo\DeliveryNotesDescription$6.class
+com\gacha\silo\InvoiceCtl.class
 com\gacha\silo\ItemCtl.class
 com\gacha\silo\InvoiceDescription$1.class
 com\gacha\silo\DeliveryNotesDescription$10.class
@@ -24,6 +26,7 @@ com\gacha\silo\MainPage$9.class
 com\gacha\silo\DaftarItem$1.class
 com\gacha\silo\ItemDescription$2.class
 com\gacha\silo\DaftarItem.class
+com\gacha\silo\Invoices$2.class
 com\gacha\silo\MainPage$5.class
 com\gacha\silo\InvoicesCtl.class
 com\gacha\silo\InvoiceBaru.class
