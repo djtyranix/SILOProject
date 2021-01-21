@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package com.gacha.silo;
-
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author micha
@@ -16,11 +17,12 @@ public class DeliveryNotesDescription extends javax.swing.JPanel {
     /**
      * Creates new form DeliveryNotesDescription
      */
-    public DeliveryNotesDescription(MainPage mainPage, DeliveryNote deliveryNote) {
+    public DeliveryNotesDescription(MainPage mainPage, DeliveryNote deliveryNote, ArrayList<Item> itemList) {
         initComponents();
         addMainPage(mainPage);
         addDeliveryNote(deliveryNote);
         fillFormInput();
+        fillTable(itemList);
     }
     
     public final void addMainPage(MainPage mainPage) {
@@ -56,6 +58,20 @@ public class DeliveryNotesDescription extends javax.swing.JPanel {
                 break;
         }
     }
+    
+    public final void fillTable(ArrayList<Item> itemList)
+    {
+        DefaultTableModel model = (DefaultTableModel) this.DNDescTable.getModel();
+        model.setRowCount(0);
+        Item curItem;
+        for(int i = 0; i < itemList.size(); i++)
+        {
+            curItem = itemList.get(i);
+            model.addRow(new Object[]{curItem.getId(), curItem.getBarcode(), curItem.getTitle(), curItem.getDescription(), curItem.getManufacturer(), curItem.getURL(), curItem.getNumberOfStocks(), "Action"});
+        }
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -93,7 +109,7 @@ public class DeliveryNotesDescription extends javax.swing.JPanel {
                 {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Barcode", "Title", "Description", "Manufacturer", "URL", "Number of Stocks", "Action"
+                "ID", "Barcode", "Title", "Description", "Manufacturer", "URL", "Pcs", "Action"
             }
         ));
         jScrollPane2.setViewportView(DNDescTable);

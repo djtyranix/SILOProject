@@ -141,4 +141,38 @@ public class DBHandler {
         
         return insertId;
     }
+    
+    //Getting item from id
+    public Item getItem(int idItem)
+    {
+        Item item = null;
+        
+        try
+        {
+            Connection con = initDB();
+            PreparedStatement st = con.prepareStatement("SELECT * FROM  item WHERE id = ?");
+            
+            st.setInt(1, idItem);
+            ResultSet rs = st.executeQuery();
+            
+            if(rs.next())
+            {
+                String id = Integer.toString(rs.getInt("id"));
+                String barcode = Integer.toString(rs.getInt("barcode"));
+                String stocks = Integer.toString(rs.getInt("numberOfStocks"));
+                
+                item = new Item(id, barcode, rs.getString("title"), rs.getString("description"), rs.getString("manufacturer"), rs.getString("url"), stocks);
+            }
+            
+            rs.close();
+            st.close();
+            con.close();
+        }
+        catch (SQLException | ClassNotFoundException e)
+        {
+            e.printStackTrace();
+        }
+        
+        return item;
+    }
 }

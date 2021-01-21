@@ -6,6 +6,7 @@
 package com.gacha.silo;
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 /**
  *
  * @author micha
@@ -26,6 +27,7 @@ public class MainPage extends javax.swing.JFrame {
     private SuratJalanBaruCtl suratJalanBaruCtl;
     private InvoicesBaruCtl invoicesBaruCtl;
     private ItemBaruCtl itemBaruCtl;
+    private DeliveryNotesDescriptionCtl deliveryNotesDescCtl;
     
     public void initObjects()
     {
@@ -43,6 +45,8 @@ public class MainPage extends javax.swing.JFrame {
         invoicesBaruCtl.addDBHandler(dbHandler);
         itemBaruCtl = new ItemBaruCtl(this);
         itemBaruCtl.addDBHandler(dbHandler);
+        deliveryNotesDescCtl = new DeliveryNotesDescriptionCtl(this);
+        deliveryNotesDescCtl.addDBHandler(dbHandler);
         
         cardPanel = new JPanel();
         cardPanel.setLayout(cardLayout);
@@ -99,6 +103,7 @@ public class MainPage extends javax.swing.JFrame {
     public void newSuratJalan(String[] input)
     {
         DeliveryNote currentDeliveryNote = suratJalanBaruCtl.newSuratJalan(input);
+        ArrayList<Item> itemList = deliveryNotesDescCtl.showCorrespondItems(currentDeliveryNote);
         
         if(currentDeliveryNote == null)
         {
@@ -108,7 +113,7 @@ public class MainPage extends javax.swing.JFrame {
         if (lastDeliveryNotesDescription != null) {
             cardPanel.remove(lastDeliveryNotesDescription);
         }
-        lastDeliveryNotesDescription = new DeliveryNotesDescription(this, currentDeliveryNote);
+        lastDeliveryNotesDescription = new DeliveryNotesDescription(this, currentDeliveryNote, itemList);
         cardPanel.add(lastDeliveryNotesDescription, "Detail Surat Jalan");
         cardLayout.show(cardPanel, "Detail Surat Jalan");
     }
